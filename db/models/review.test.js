@@ -17,15 +17,6 @@ describe('Review', () => {
         });
   });
 
-  // it('inserts data into model', function() {
-  //   review.save().then(
-  //     function(savedReview) {
-  //       expect(savedReview.rating).to.equal(1);
-  //       expect(savedReview.description).to.equal('This is a review of a product.');
-  //     }
-  //   )
-  // });
-
   it('inserts data into model', function() {
     expect(review.rating).to.equal(1);
     expect(review.description).to.equal('This is a review of a product.');
