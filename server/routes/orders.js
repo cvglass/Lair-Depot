@@ -3,7 +3,6 @@ const Orders = db.model('orders');
 
 const {forbidden} = require('../auth.filters');
 
-
 module.exports = require('express').Router()
   .get('/', forbidden('only admins can list orders'), (req, res, next) => {
     Orders.findAll()
