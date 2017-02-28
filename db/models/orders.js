@@ -16,9 +16,10 @@ const Orders = db.define('orders', {
   }
 }, {
   instanceMethods: {
-    changeStatus: function (cancelled) {
+    changeStatus: function (newStatus) {
       if (this.status === 'created') this.status = 'processing'
-      else if (cancelled === true && this.status === 'processing') this.status = 'pancelled'
+      else if (newStatus === "cancel" && this.status === 'processing') this.status = 'cancelled'
+      else if (newStatus === "complete" && this.status === 'processing') this.status = 'completed'
     }
   }
 });
