@@ -5,9 +5,7 @@ const Orders = db.define('orders', {
   status: {
     type: Sequelize.STRING,
     defaultValue: 'created',
-    validate: {
-      allowNull: false
-    }
+    allowNull: false
   },
   price: {
     type: Sequelize.DECIMAL,
@@ -17,9 +15,9 @@ const Orders = db.define('orders', {
 }, {
   instanceMethods: {
     changeStatus: function (newStatus) {
-      if (this.status === 'created') this.status = 'processing'
-      else if (newStatus === "cancel" && this.status === 'processing') this.status = 'cancelled'
-      else if (newStatus === "complete" && this.status === 'processing') this.status = 'completed'
+      if (newStatus === 'cancel') this.status = 'cancelled'
+      else if (this.status === 'created') this.status = 'processing'
+      else if (newStatus === 'complete' && this.status === 'processing') this.status = 'completed'
     }
   }
 });

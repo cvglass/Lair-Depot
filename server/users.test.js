@@ -10,7 +10,7 @@ describe('/api/users', () => {
       request(app)
         .get(`/api/users/1`)
         .expect(401)
-    )    
+    )
 
     it('POST creates a user', () =>
       request(app)
@@ -32,7 +32,17 @@ describe('/api/users', () => {
         .redirects(1)
         .then(res => expect(res.body).to.contain({
           email: 'eve@interloper.com'
-        }))        
+        }))
     )
   })
 })
+
+  describe('/api/users/:id/orders', () => {
+    describe('eagerly loads orders', () => {
+      it('GET retreives all previous orders', () => {
+        request(app)
+        .get(`api/users/1/orders`)
+        .expect({/*TODO*/})
+      })
+    })
+  })
