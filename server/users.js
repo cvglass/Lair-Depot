@@ -24,10 +24,7 @@ module.exports = require('express').Router()
 				id: req.params.id
 			},
 			include: [
-				{model: Order,
-				where: {
-					userId: req.params.id
-				}}
+				{model: Order}
 			]
 		})
 		.then(user => res.json(user))
