@@ -1,4 +1,4 @@
-const Sequelize = reqiure('sequelize');
+const Sequelize = require('sequelize');
 const db = require('APP/db');
 
 const Category = db.define('category', {
