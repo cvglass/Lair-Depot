@@ -5,8 +5,9 @@
 // to get access to the User model.
 
 const User = require('./user')
+const Category = require('./category')
 const OAuth = require('./oauth')
 
 OAuth.belongsTo(User)
 User.hasOne(OAuth)
-module.exports = {User}
+module.exports = {User, Category}
