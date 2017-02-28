@@ -1,6 +1,6 @@
 const db = require('APP/db');
 const Category = db.model('categories');
-const Product = db.model('product');
+const Product = db.model('products');
 
 module.exports = require('express').Router()
   .get('/', (req, res, next) => {
@@ -14,10 +14,7 @@ module.exports = require('express').Router()
         id: req.params.id
       },
       include: [
-        {model: Product,
-        where: {
-          categoryId: req.params.id
-        }}
+        {model: Product}
       ]
     })
     .then(categoryWithProducts => res.json(categoryWithProducts))
