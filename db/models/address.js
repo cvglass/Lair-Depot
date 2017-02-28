@@ -21,7 +21,7 @@ const Address = db.define('addresses',
       type: Sequelize.STRING,
       validate: {
         notEmpty: true,
-        len: [2,10], 
+        len: [5,5],
         not: ["[a-z]",'i'],
       }
     },
@@ -44,7 +44,7 @@ const Address = db.define('addresses',
      billingInfo: function(){
        return `${this.street}, ${this.city}, ${this.state} ${this.zip}`
      }
-   } 
+   }
   }
 
 
