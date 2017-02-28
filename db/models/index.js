@@ -7,7 +7,8 @@
 const User = require('./user')
 const Category = require('./category')
 const OAuth = require('./oauth')
-
+const Address = require('./address')
 OAuth.belongsTo(User)
 User.hasOne(OAuth)
-module.exports = {User, Category}
+module.exports = {User, Address, Category}
+
