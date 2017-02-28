@@ -1,6 +1,6 @@
 const db = require('APP/db')
 //ShoppingCart model doesn't actually exist yet
-const ShoppingCart = db.model('shoppingCart');
+const ShoppingCart = db.model('cart');
 
 module.exports = require('express').Router()
   .get('/:userID', (req, res, next) => {
