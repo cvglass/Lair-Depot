@@ -4,11 +4,15 @@
 // so any other part of the application could call sequelize.model('User')
 // to get access to the User model.
 
-const User = require('./user')
-const Category = require('./category')
+const User = require('./user');
+const Category = require('./category');
+const Orders = require('./orders');
+const Address = require('./address');
+const Product = require('./product');
+const Price = require('./price');
 const OAuth = require('./oauth')
-const Address = require('./address')
+
 OAuth.belongsTo(User)
 User.hasOne(OAuth)
-module.exports = {User, Address, Category}
+module.exports = {User, Address, Category, Orders, Product, Price}
 
