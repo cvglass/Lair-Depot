@@ -8,49 +8,48 @@ const Address = db.define('addresses',
     street: {
       type: Sequelize.STRING,
       validate: {
-        notEmpty: true,
+        allowNull: false,
       }
     },
     city: {
       type: Sequelize.STRING,
       validate: {
-        notEmpty: true,
+        allowNull: false,
       }
     },
-    zip: {// int or string? check length of this?
+    zip: {// going to keep as a string because Sequelize can't validate integers
       type: Sequelize.STRING,
       validate: {
-        notEmpty: true,
-        len: [5,5],
-        not: ["[a-z]",'i'],
+        allowNull: false,
+        len: [5,9],
+        isInt: true,
       }
     },
     state: {
       type: Sequelize.STRING,
       validate: {
-        notEmpty: true,
+        allowNull: false,
+        len: [2,2]
       }
     },
     phone: {
       type: Sequelize.STRING,
       validate: {
-        notEmpty: true,
-        not: ["[a-z]",'i'],
+        allowNull: false,
+        isInt: true,
       }
     }
   },
   {
    getterMethods: {
      billingInfo: function(){
-       return `${this.street}, ${this.city}, ${this.state} ${this.zip}`
+       return `${this.street},
+               ${this.city}, 
+               ${this.state}
+               ${this.zip}`
      }
    }
   }
-
-
 )
-
-
-
 
 module.exports = Address;

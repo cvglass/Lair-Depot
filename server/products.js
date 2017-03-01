@@ -19,7 +19,7 @@ router.get('/:id', (req, res, next) => {
       id: req.params.id,
     },
     include: [{model: Price},
-              {model: Review}]
+              {model: Review}]  //Do we really need reviews every time we get a product? And the API is different for one vs many
   })
     .then(product => res.json(product))
     .catch(next)

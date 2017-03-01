@@ -16,13 +16,13 @@ module.exports = require('express').Router()
     ShoppingCart.findOne({where: {userId: userID}})
     .then(cart => {
       cart.update(cartInfo);
-      res.status(204).json(cart);
+      res.status(204).json(cart); //This won't work. 204 means no more content and is used with delete
     })
     .catch(next)
   })
   .post('/', (req, res, next) => {
     let newCart = req.body;
-    ShoppingCart.create(newCart)
+    ShoppingCart.create(newCart) //I would stop renaming variables
     .then(cart => res.status(201).json(cart))
     .catch(next)
   })

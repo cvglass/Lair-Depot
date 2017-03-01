@@ -19,17 +19,17 @@ const User = require('./user');
 OAuth.belongsTo(User)
 User.hasOne(OAuth)
 //cart_product table
-Cart.belongsToMany(Product, {through: cart_product});
+Cart.belongsToMany(Product, {through: cart_product});  //Keep in mind magic methods won't work. Good
 Product.belongsToMany(Cart, {through: cart_product});
 
 //shopping cart table -- add userID
 Cart.belongsTo(User);
 
 //shipping info -- add userID X
-Address.belongsTo(User);
+Address.belongsTo(User); //Probably want the other way so we can reuse an address.
 
 //order product join table -- add quantity, orderID, productID X
-Order.belongsToMany(Product, {through: order_product});
+Order.belongsToMany(Product, {through: order_product}); //How's this differ from cart_product?
 Product.belongsToMany(Order, {through: order_product});
 
 //order table -- add userID X
@@ -40,7 +40,7 @@ Review.belongsTo(User);
 Review.belongsTo(Product);
 
 //product table -- add priceID, categoryID X
-Product.belongsTo(Price);
+Product.belongsTo(Price);//WHy is price a model?
 Product.belongsTo(Category);
 
 
