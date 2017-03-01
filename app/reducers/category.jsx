@@ -1,7 +1,7 @@
 import axios from 'axios'
-const GET_CATEGORIES = 'GET_CATEGORIES';
+import {GET_CATEGORIES} from '../constants.jsx';
 
-const initialState={
+const initialState =  {
   list: [{
     id:1,
     name: "weapons",
@@ -12,7 +12,7 @@ const initialState={
   }],
 }
 
-const reducer = (state= initialState, action) => {
+const reducer = (state = initialState, action) => {
   const newState = Object.assign({}, state);
   switch (action.type){
     case GET_CATEGORIES:
@@ -24,18 +24,4 @@ const reducer = (state= initialState, action) => {
   return newState;
 }
 
-export const getCategories = () => 
-  dispatch =>
-    axios.get('api/categories') //trying to destructure to access data
-      .then(({data}) => dispatch(listCategories(data)))
-      .catch((err) =>console.log(err) )
-
-export const listCategories = categoryList => ({
-  type: GET_CATEGORIES,
-  list: categoryList,
-})
-
-
-
 export default reducer;
-
