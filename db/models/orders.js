@@ -8,7 +8,7 @@ const Orders = db.define('orders', {
     allowNull: false
   },
   price: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.STRING,
     allowNull: false,
     defaultValue: 0.00
   }
