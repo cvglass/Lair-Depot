@@ -3,7 +3,7 @@
 const db = require('APP/db');
 const Product = db.model('products');
 const Price = db.model('prices');
-const Review = db.model('reviews');
+const Review = db.model('review');
 const router = require('express').Router();
 
 
