@@ -4,15 +4,44 @@
 // so any other part of the application could call sequelize.model('User')
 // to get access to the User model.
 
-const User = require('./user');
-const Category = require('./category');
-const Orders = require('./orders');
 const Address = require('./address');
-const Product = require('./product');
+const Cart = require('./cart');
+const cart_product = require('./cart_product.js');
+const Category = require('./category');
+const OAuth = require('./oauth');
+const Orders = require('./orders');
+const order_product = require('./order_product.js');
 const Price = require('./price');
-const OAuth = require('./oauth')
+const Product = require('./product');
+const Review = require('./review');
+const User = require('./user');
 
 OAuth.belongsTo(User)
 User.hasOne(OAuth)
-module.exports = {User, Address, Category, Orders, Product, Price}
+//cart_product table
+Cart.belongsToMany(Product, {through: cart_product});
+Product.belongsToMany(Cart, {through: cart_product});
 
+//shopping cart table -- add userID
+Cart.belongsTo(User);
+
+//shipping info -- add userID X
+Address.belongsTo(User);
+
+//order product join table -- add quantity, orderID, productID X
+Order.belongsToMany(Product, {through: order_product});
+Product.belongsToMany(Order, {through: order_product});
+
+//order table -- add userID X
+Order.belongsTo(User);
+
+//review table -- add userID, productID X
+Review.belongsTo(User);
+Review.belongsTo(Product);
+
+//product table -- add priceID, categoryID X
+Product.belongsTo(Price);
+Product.belongsTo(Category);
+
+
+module.exports = {User, Address, Category, Review, Order, Price, Product, Cart, cart_product, order_product};
