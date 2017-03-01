@@ -4,22 +4,20 @@
 // so any other part of the application could call sequelize.model('User')
 // to get access to the User model.
 
-const User = require('./user')
-const Category = require('./category')
-const OAuth = require('./oauth')
-const Address = require('./address')
-const Order = require('./orders');
-const Review = require('./review');
-const Product = require('./product');
-const Price = require('./price');
-const order_product = require('./order_product.js');
+const Address = require('./address');
 const Cart = require('./cart');
 const cart_product = require('./cart_product.js');
-
+const Category = require('./category');
+const OAuth = require('./oauth');
+const Orders = require('./orders');
+const order_product = require('./order_product.js');
+const Price = require('./price');
+const Product = require('./product');
+const Review = require('./review');
+const User = require('./user');
 
 OAuth.belongsTo(User)
 User.hasOne(OAuth)
-
 //cart_product table
 Cart.belongsToMany(Product, {through: cart_product});
 Product.belongsToMany(Cart, {through: cart_product});

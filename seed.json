@@ -1,0 +1,68 @@
+{
+  "users":
+  [
+    {
+      "name": "Lex Luther",
+      "email": "lexluther@example.com",
+      "password": "1234",
+      "isAdmin": "true"
+    },{
+      "name": "Dr. Evil",
+      "email": "drevile@example.com",
+      "password": "1234",
+      "isAdmin": "false"
+    }
+  ],
+  "orders":
+  [
+    {
+      "status": "created",
+      "price": "12.00",
+      "userId": "1"
+    },{
+      "status": "created",
+      "price": "0.99",
+      "userId": "2"
+    }
+  ],
+  "category":
+  [
+    {
+      "name": "Weapons",
+      "description": "A wide array of the latest in combat equipment."
+    },{
+      "name": "Evil pets",
+      "description": "From Mr.fluffykins to killer bees, we have what you need for your evil deeds"
+    }
+  ],
+  "products":
+  [
+    {
+      "name": "Kryptonite",
+      "description": "The man of steel's main weakness, also really shiny"
+    }, {
+      "name": "Laser beams",
+      "description": "Pew Pew"
+    }
+  ],
+  "addresses":
+  [
+    {
+      "street": "123 Evil Ave",
+      "city": "Evil",
+      "state": "AL",
+      "zip": "12345",
+      "phone": "1234567890"
+    }, {
+      "street": "123 Evil Ave",
+      "city": "Evil",
+      "state": "AL",
+      "zip": "12345",
+      "phone": "1234567890"
+    }
+  ],
+  "prices":
+  [
+    {"value": "12.34"}
+  ]
+}

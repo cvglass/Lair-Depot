@@ -1,13 +1,22 @@
 const db = require('APP/db')
 
-const seedUsers = () => db.Promise.map([
-  {name: 'so many', email: 'god@example.com', password: '1234'},
-  {name: 'Barack Obama', email: 'barack@example.gov', password: '1234'},
-], user => db.model('users').create(user))
+const data = require('../seed.json')
+
+const seedData = () => db.Promise.map(Object.keys(data), function(model) {
+    return db.Promise.map(data[model], function(item){
+      return db.model(model)
+      .create(item)
+    })
+})
+
+const seedProducts = () => db.Promise.map([
+  {name: "Kryptonite", description: "The man of steel's main weakness, also really shiny" },
+  {name: "Laser beams", description: "Pew Pew"}
+], product =>  db.model('products').create(product).then((product) => product.addCategories([1,2])))
 
 db.didSync
   .then(() => db.sync({force: true}))
-  .then(seedUsers)
-  .then(users => console.log(`Seeded ${users.length} users OK`))
+  .then(seedData)
+  .then(seededData => console.log(`data is seededData`))
   .catch(error => console.error(error))
   .finally(() => db.close())
