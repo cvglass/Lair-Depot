@@ -1,5 +1,5 @@
 'use strict'
-
+//Maybe we neeed a test folder
 const db = require('APP/db');
 const Address = require('./address');
 const {expect} = require('chai');

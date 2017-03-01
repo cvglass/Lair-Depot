@@ -15,6 +15,7 @@ module.exports = require('express').Router()
       Price.findOrCreate({where: req.body})
       .spread( (price, created) => res.status(201).json(price))
       .catch(next)})
+      //Maybe put get methods together
   .get('/:id', (req,res,next)=>
     Price.findById(req.params.id)
     .then(price => res.json(price))

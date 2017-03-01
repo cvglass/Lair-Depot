@@ -14,7 +14,8 @@ module.exports = require('express').Router()
         id: req.params.id
       },
       include: [
-        {model: Product}
+        {model: Product} //Do we need eager loading? This join could be HUGE
+        //What about our other HTTP methods?
       ]
     })
     .then(categoryWithProducts => res.json(categoryWithProducts))

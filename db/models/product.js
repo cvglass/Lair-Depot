@@ -10,7 +10,7 @@ const Product = db.define('products', {
     unique: true,
   },
   description: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING, //maybe Sequelize.TEXT
     allowNull: false,
   },
   imageUrl: Sequelize.STRING,
@@ -21,8 +21,8 @@ const Product = db.define('products', {
       let fileName = product.name
           .toLowerCase()
           .split(' ')
-          .join('-');
-      product.imageUrl = `/img/${fileName}.png`;
+          .join('-'); //good
+      product.imageUrl = `/img/${fileName}.png`; //Can we just save it as a png???
     }
   }
 })
