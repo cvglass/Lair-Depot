@@ -43,15 +43,13 @@ const Address = db.define('addresses',
   {
    getterMethods: {
      billingInfo: function(){
-       return `${this.street}, ${this.city}, ${this.state} ${this.zip}` //new lines?
+       return `${this.street},
+               ${this.city}, 
+               ${this.state}
+               ${this.zip}`
      }
    }
   }
-
-
 )
-
-///////so many blank lines/////
-
 
 module.exports = Address;
