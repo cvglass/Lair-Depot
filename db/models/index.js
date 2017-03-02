@@ -7,7 +7,7 @@
 const Address = require('./address');
 const Cart = require('./cart');
 const cart_product = require('./cart_product.js');
-const Category = require('./category');
+const ProductCategory = require('./productCategory');
 const OAuth = require('./oauth');
 const Order = require('./orders');
 const order_product = require('./order_product.js');
@@ -39,6 +39,6 @@ Review.belongsTo(User);
 Review.belongsTo(Product);
 
 //product table -- add priceID, categoryID X
-Product.belongsToMany(Category, {through: 'category_product'});
+Product.belongsToMany(ProductCategory, {through: 'category_product'});
 
-module.exports = {User, Address, Category, Review, Order, Product, Cart, cart_product, order_product};
+module.exports = {User, Address, ProductCategory, Review, Order, Product, Cart, cart_product, order_product};
