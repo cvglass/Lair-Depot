@@ -22,7 +22,7 @@ router.get('/:id', (req, res, next) => {
     .catch(next)
 })
 
-router.get('/reviews/:id', (req, res, next) => {
+router.get('/:id/reviews', (req, res, next) => {
     Review.findAll({
       where: {
         product_id: req.params.id
