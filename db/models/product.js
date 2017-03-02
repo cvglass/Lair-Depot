@@ -22,7 +22,7 @@ const Product = db.define('products', {
           .toLowerCase()
           .split(' ')
           .join('-');
-      product.imageUrl = `/img/${fileName}.jpg`;
+      product.imageUrl = `/img/${fileName}.jpeg`;
     }
   }
 })
