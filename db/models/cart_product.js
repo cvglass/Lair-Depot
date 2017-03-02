@@ -3,10 +3,7 @@ const Sequelize = require('sequelize');
 
 const cart_product = db.define('cart_product', {
   quantity: {
-    type: Sequelize.INTEGER,
-    validate: {
-      min: 1
-    }
+    type: Sequelize.INTEGER
   }
 });
 
