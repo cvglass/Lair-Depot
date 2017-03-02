@@ -14,6 +14,10 @@ const Product = db.define('products', {
     allowNull: false,
   },
   imageUrl: Sequelize.STRING,
+  price: {
+    type: Sequelize.DECIMAL,
+    isNumeric: true,
+  } 
 }, {
   hooks: {
     beforeValidate: function(product) {
