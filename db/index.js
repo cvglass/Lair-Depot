@@ -25,10 +25,12 @@ const db = module.exports = new Sequelize(url, {
 require('./models')
 
 // sync the db, creating it if necessary
-function sync(force=app.isTesting, retries=0, maxRetries=5) {
-  return db.sync({force})
+function sync(force=app.isTesting, retries=0, maxRetries=1) {
+  console.log('global "it" prop is: ', global.it)
+  return db.sync({force: false})
     .then(ok => console.log(`Synced models to db ${url}`))
     .catch(fail => {
+      console.log(fail);
       // Don't do this auto-create nonsense in prod, or
       // if we've retried too many times.
       if (app.isProduction || retries > maxRetries) {
@@ -49,4 +51,4 @@ function sync(force=app.isTesting, retries=0, maxRetries=5) {
 }
 
 // Note that db.didSync is a promise, rather than returning a promise
-db.didSync = sync()
+//db.didSync = sync()
