@@ -2,7 +2,6 @@
 
 const db = require('APP/db');
 const Product = db.model('products');
-const Price = db.model('prices');
 const Review = db.model('review');
 const router = require('express').Router();
 
@@ -16,13 +15,22 @@ router.get('/', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   Product.findOne({
     where: {
-      id: req.params.id,
-    },
-    include: [{model: Price},
-              {model: Review}]
+      id: req.params.id
+    }
   })
     .then(product => res.json(product))
     .catch(next)
+})
+
+router.get('/reviews/:id', (req, res, next) => {
+    Review.findAll({
+      where: {
+        product_id: req.params.id
+      }
+    })
+    .then(reviews => {
+      res.json(reviews);
+    })
 })
 
 module.exports = router;
