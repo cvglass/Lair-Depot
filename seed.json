@@ -53,11 +53,11 @@
   [
     {
       "product_id": "1",
-      "category_id": "1"
+      "Product_category_id": "1"
     },
     {
       "product_id": "2",
-      "category_id": "1"
+      "Product_category_id": "1"
     }
   ],
   "addresses":
