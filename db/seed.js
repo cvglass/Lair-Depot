@@ -2,12 +2,12 @@ const db = require('APP/db')
 
 const data = require('../seed.json')
 //data[keys]
-const seedData = () => db.Promise.map(Object.keys(data), function(model) {
-    return db.Promise.map(data[model], function(item){
-      return db.model(model)
-      .create(item)
-    })
-})
+// const seedData = () => db.Promise.map(Object.keys(data), function(model) {
+//     return db.Promise.map(data[model], function(item){
+//       return db.model(model)
+//       .create(item)
+//     })
+// })
 
 
 const seedUsers = () => db.Promise.map(data.users, user => db.model('users').create(user))
