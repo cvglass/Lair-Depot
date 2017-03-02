@@ -14,7 +14,7 @@ const seedUsers = () => db.Promise.map(data.users, user => db.model('users').cre
 
 const seedOrders = () => db.Promise.map(data.orders, order => db.model('orders').create(order))
 
-const seedCategories = () => db.Promise.map(data.category, category => db.model('category').create(category))
+const seedProdCategories = () => db.Promise.map(data.productCategory, category => db.model('productCategory').create(category))
 const seedProducts = () => db.Promise.map(data.products, product =>  db.model('products').create(product))
 
 const seedProdCat = () => db.Promise.map(data.category_product, catProd => db.model('category_product').create(catProd))
@@ -37,7 +37,7 @@ db.didSync
   .then(seedAddresses)
   .then(seedUsers)
   .then(seedOrders)
-  .then(seedCategories)
+  .then(seedProdCategories)
   .then(seedProducts)
   .then(seedProdCat)
   .then(seedReviews)
