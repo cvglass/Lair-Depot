@@ -10,7 +10,7 @@ const Product = db.define('products', {
     unique: true,
   },
   description: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT('medium'),
     allowNull: false,
   },
   imageUrl: Sequelize.STRING,
@@ -26,7 +26,7 @@ const Product = db.define('products', {
           .toLowerCase()
           .split(' ')
           .join('-');
-      product.imageUrl = `/img/${fileName}.png`;
+      product.imageUrl = `/img/${fileName}.jpg`;
     }
   }
 })
