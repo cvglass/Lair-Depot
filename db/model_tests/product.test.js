@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('APP/db')
-const Product = require('./product')
+const Product = require('../models/product')
 const {expect} = require('chai')
 
 describe('Product', () => {
@@ -20,7 +20,7 @@ describe('Product', () => {
 
   it('hook returns correctly formatted url', function() {
       product.save().then(function() {
-        expect(product.imageUrl).to.equal('/img/laser-beam.png')
+        expect(product.imageUrl).to.equal('/img/laser-beam.jpg')
       })
   });
 

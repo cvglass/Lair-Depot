@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('APP/db');
-const Address = require('./address');
+const Address = require('../models/address');
 const {expect} = require('chai');
 
 describe('Address', ()=>{
@@ -14,9 +14,9 @@ describe('Address', ()=>{
         city: 'Chicago',
         zip: '60654',
         state: 'IL',
-        phone: '123-4567-8910'
+        phone: '12345678910'
       })
-      .then(address => expect(address.billingInfo).to.equal('222 W Merchandise Mart Plaza #1212, Chicago, IL 60654'))
+      .then(address => expect(address.billingInfo).to.equal(`222 W Merchandise Mart Plaza #1212, Chicago, IL 60654`))
     )
   })
 })

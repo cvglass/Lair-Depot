@@ -7,15 +7,11 @@ const Address = db.define('addresses',
   {
     street: {
       type: Sequelize.STRING,
-      allowNull: false,
-      validate: {
-      }
+      allowNull: false
     },
     city: {
       type: Sequelize.STRING,
-      allowNull: false,
-      validate: {
-      }
+      allowNull: false
     },
     zip: {// going to keep as a string because Sequelize can't validate integers
       type: Sequelize.STRING,
@@ -27,9 +23,7 @@ const Address = db.define('addresses',
     },
     state: {
       type: Sequelize.STRING,
-      allowNull: false,
-      validate: {
-      }
+      allowNull: false
     },
     phone: {
       type: Sequelize.STRING,
@@ -42,18 +36,10 @@ const Address = db.define('addresses',
   {
    getterMethods: {
      billingInfo: function(){
-       return `${this.street},
-               ${this.city},
-               ${this.state}
-               ${this.zip}`
+       return `${this.street}, ${this.city}, ${this.state} ${this.zip}`
      }
    }
   }
-
-
 )
-
-
-
 
 module.exports = Address;
