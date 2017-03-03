@@ -1,6 +1,6 @@
-import {CHANGE_CURRENT} from '../constants.jsx';
+import {CHANGE_NAV_VIEW} from '../constants.jsx';
 
-export const changeCurrent = newCurrent => ({
-  type: CHANGE_CURRENT,
-  newCurr: newCurrent
+export const changeView = newView => ({
+  type: CHANGE_NAV_VIEW,
+  newView: newView
 })

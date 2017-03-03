@@ -9,6 +9,7 @@ const Navbar = ({current, list, changeCurrent, user, adminList}) => {
   return (
     <div >
       {user ? (<WhoAmI /> ): (<Login />)}
+      <Link to='/'><button>Home</button></Link>
       {user ?(  user.isAdmin ? adminList.map((item)=> (
         <Link key ={item.id} to={item.name}>
             <button onClick={() => changeCurrent(item)}> {item.name}</button>
@@ -17,7 +18,7 @@ const Navbar = ({current, list, changeCurrent, user, adminList}) => {
        : null) : null }
       {
         list.map((item) => (
-          <Link key ={item.id} to={item.name==="Home"? '/' : item.name}>
+          <Link key ={item.id} to={item.name}>
             <button onClick={() => changeCurrent(item)}> {item.name}</button>
           </Link>
         ))

@@ -8,10 +8,6 @@ const initialState = {
   },
   list: [
     {
-      id: 0,
-      name: 'Home'
-    },
-    {
       id: 1,
       name: 'Products'
     },
