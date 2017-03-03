@@ -5,8 +5,7 @@ import {Product} from '../components/Product';
 
 const mapStateToProps = state => {
   return {
-    product: state.products.currentProduct,
-    reviews: state.reviews
+    product: state.products.currentProduct
   };
 };
 
