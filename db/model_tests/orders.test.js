@@ -24,15 +24,5 @@ describe('Orders`', () => {
       expect(newestOrder.price).to.not.equal(1);
       expect(newestOrder.price).to.not.equal('not created');
     });
-
-    it('tests change status instance method', () => {
-      newestOrder.changeStatus();
-      newOrder.changeStatus();
-      expect(newOrder.status).to.equal('processing');
-      newOrder.changeStatus('cancel');
-      expect(newOrder.status).to.equal('cancelled');
-      newestOrder.changeStatus('complete');
-      expect(newestOrder.status).to.equal('completed');
-    });
   });
 });
