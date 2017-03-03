@@ -1,4 +1,5 @@
 import {GET_PRODUCTS, SET_PRODUCT} from '../constants';
+import axios from 'axios';
 
 //all products
 export const getProducts = (products) => {
