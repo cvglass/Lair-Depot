@@ -3,8 +3,35 @@ import React from 'react';
 /*not sure if this will work; need to test
 when more pieces are in place*/
 
-export const Reviews = ({reviews}) => {
-
+  const stuff = [
+    {
+      title: "sup though",
+      created_at: '1234435',
+      user: {
+        name: 'hello'
+      },
+      rating: 4,
+      description: 'fadsfadsfadsfsafds'
+    },
+     {
+      title: "sup though 2",
+      created_at: '123443325',
+      user: {
+        name: 'hell3o'
+      },
+      rating: 4,
+      description: 'fasdsfadsfsdfasdfasf',
+    },
+     {
+      title: "sup though3",
+      created_at: '1234432345',
+      user: {
+        name: 'hello34'
+      },
+      rating: 4,
+      description: 'fdasfsadfsdfs',
+    }
+  ]
   const getStars = (review) => {
     let rating = review.rating,
         stars = [],
@@ -15,8 +42,8 @@ export const Reviews = ({reviews}) => {
                       className="fullStar">\u2605</li>));
     }
 
-    if (diff > 0) {
-      for (let i = 0; i < diff; i++) {
+    if (difference > 0) {
+      for (let i = 0; i < difference; i++) {
         stars.push((<li key={(i + 1) + difference}
                         className="emptyStar"> \u2606</li>));
       }
@@ -25,18 +52,23 @@ export const Reviews = ({reviews}) => {
     return stars;
   }
 
+const Reviews = ({reviews}) => {
+  console.log(stuff)
   return (
-    {reviews.map(review => {
-      return (
-        <div>
-          <ul className>
-            {getStars(review)};
-          </ul>
-          <span className="reviewTitle">{review.title}</span>
-          <span>By {review.user.name} on {review.created_at}</span>
-          <p>{review.description}</p>
-        </div>
-      )
-    })}
+    <div>
+  {    stuff.map(review => {
+        console.log(review)
+        return (
+          <div>
+            <ul className>{getStars(review)}</ul>
+            <span className="reviewTitle">{review.title}</span>
+            <span>By {review.user.name} on {review.created_at}</span>
+            <p>{review.description}</p>
+          </div>
+        )
+      })}
+    </div>
   )
 }
+
+export default Reviews
