@@ -7,35 +7,29 @@ const Address = db.define('addresses',
   {
     street: {
       type: Sequelize.STRING,
-      validate: {
-        notEmpty: true,
-      }
+      allowNull: false
     },
     city: {
       type: Sequelize.STRING,
-      validate: {
-        notEmpty: true,
-      }
+      allowNull: false
     },
-    zip: {// int or string? check length of this?
+    zip: {// going to keep as a string because Sequelize can't validate integers
       type: Sequelize.STRING,
+      allowNull: false,
       validate: {
-        notEmpty: true,
-        len: [5,5],
-        not: ["[a-z]",'i'],
+        len: [5,9],
+        isInt: true,
       }
     },
     state: {
       type: Sequelize.STRING,
-      validate: {
-        notEmpty: true,
-      }
+      allowNull: false
     },
     phone: {
       type: Sequelize.STRING,
+      allowNull: false,
       validate: {
-        notEmpty: true,
-        not: ["[a-z]",'i'],
+        isInt: true,
       }
     }
   },
@@ -46,11 +40,6 @@ const Address = db.define('addresses',
      }
    }
   }
-
-
 )
-
-
-
 
 module.exports = Address;

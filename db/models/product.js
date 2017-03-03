@@ -10,10 +10,14 @@ const Product = db.define('products', {
     unique: true,
   },
   description: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false,
   },
   imageUrl: Sequelize.STRING,
+  price: {
+    type: Sequelize.DECIMAL,
+    isNumeric: true,
+  }
 }, {
   hooks: {
     beforeValidate: function(product) {
@@ -22,7 +26,7 @@ const Product = db.define('products', {
           .toLowerCase()
           .split(' ')
           .join('-');
-      product.imageUrl = `/img/${fileName}.png`;
+      product.imageUrl = `/img/${fileName}.jpg`;
     }
   }
 })

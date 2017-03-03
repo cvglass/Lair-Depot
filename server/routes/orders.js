@@ -9,19 +9,31 @@ module.exports = require('express').Router()
     .then(allOrders => res.json(allOrders))
     .catch(next)
   })
+  .get('/:orderID', (req, res, next) => {
+    Orders.findOne({where: {id: req.params.orderID}})
+    .then(order => res.json(order))
+  })
   .post('/', (req, res, next) => {
-    let newOrder = req.body;
-    Orders.create({newOrder})
+    Orders.create(req.body)
     .then(order => res.status(201).json(order))
     .catch(next)
   })
   .put('/:orderID/:status', (req, res, next) => {
-    let orderID = req.params.orderID;
-    let status = req.params.status;
-    Orders.findOne({where: {id: orderID}})
+    Orders.findOne({where: {id: req.params.orderID}})
     .then(order => {
-      order.changeStatus(status);
+      if (req.params.status === 'cancelled') order.cancelOrder();
+      else {
+        order.completeOrder();
+        order.processOrder();
+      }
       res.status(202).json(order);
     })
     .catch(next)
+  })
+  .delete('/:orderID', (req, res, next) => {
+    Orders.findOne({where: {id: req.params.orderID}})
+    .then(order => {
+      order.destroy();
+      res.status(204);
+    })
   })
