@@ -4,7 +4,8 @@ const Orders = db.model('orders');
 const {forbidden} = require('../auth.filters');
 
 module.exports = require('express').Router()
-  .get('/', forbidden('only admins can list orders'), (req, res, next) => {
+//temporarily remove the forbidden middleware
+  .get('/', (req, res, next) => {
     Orders.findAll()
     .then(allOrders => res.json(allOrders))
     .catch(next)
