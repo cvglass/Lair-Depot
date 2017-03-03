@@ -1,6 +1,6 @@
-import {retrieveUserInfo} from '../action-creators/user.jsx';
+import {retrieveUserInfo} from '../action-creators/user';
 import {connect} from 'react-redux';
-import User from '../components/User.jsx';
+import User from '../components/User';
 
 const mapStateToProps = (state) => {
   return {
