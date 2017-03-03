@@ -9,18 +9,18 @@ import Jokes from './components/Jokes'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import CategoryContainer from './containers/CategoryContainer'
+import NavBarContainer from './containers/NavbarContainer'
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
 ) (
   ({ user, children }) =>
     <div>
-      <nav>
-        {user ? <WhoAmI/> : <Login/>}
-      </nav> 
+      <NavBarContainer />
       {children}
     </div>
 )
+
 
 render (
   <Provider store={store}>
@@ -33,3 +33,4 @@ render (
   </Provider>,
   document.getElementById('main')
 )
+//<Route path="/nav" component={NavBarContainer} />
