@@ -8,7 +8,9 @@ import store from './store'
 import Jokes from './components/Jokes'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
+import Reviews from './components/Reviews'
 import CategoryContainer from './containers/CategoryContainer'
+
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
@@ -27,6 +29,8 @@ render (
     <Router history={browserHistory}>
       <Route path="/" component={ExampleApp}>
         <IndexRedirect to="/categories" />
+        <Route path = "/reviews" component={Reviews} />
+        <Route path="/jokes" component={Jokes} />
         <Route path="/categories" component={CategoryContainer} />
       </Route>
     </Router>
