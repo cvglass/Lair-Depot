@@ -4,7 +4,7 @@ const db = require('APP/db')
 const Orders = require('APP/db/models/orders.js')
 const app = require('../start.js')
 
-describe('/api/users', () => {
+describe('/api/orders', () => {
 
   var newOrder;
 
@@ -30,18 +30,6 @@ describe('/api/users', () => {
             price: '0'
           })
           expect(201)
-        })
-    )
-
-    it('PUT updates status of order', () =>
-      request(app)
-        .put('/api/orders/1/cancel')
-        .then(res => {
-          expect(res.body).to.contain({
-          status: 'cancelled',
-          price: '0'
-        })
-        expect(202)
         })
     )
   })

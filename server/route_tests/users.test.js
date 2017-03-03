@@ -2,7 +2,7 @@ const request = require('supertest-as-promised')
 const {expect} = require('chai')
 const db = require('APP/db')
 const User = require('APP/db/models/user')
-const app = require('./start')
+const app = require('../start')
 
 describe('/api/users', () => {
   describe('when not logged in', () => {
@@ -36,13 +36,3 @@ describe('/api/users', () => {
     )
   })
 })
-
-  describe('/api/users/:id/orders', () => {
-    describe('eagerly loads orders', () => {
-      it('GET retreives all previous orders', () => {
-        request(app)
-        .get(`api/users/1/orders`)
-        .expect({/*TODO*/})
-      })
-    })
-  })
