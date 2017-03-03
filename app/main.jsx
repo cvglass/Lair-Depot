@@ -10,6 +10,7 @@ import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import Reviews from './components/Reviews'
 import CategoryContainer from './containers/CategoryContainer'
+import NavBarContainer from './containers/NavbarContainer'
 
 
 const ExampleApp = connect(
@@ -17,12 +18,11 @@ const ExampleApp = connect(
 ) (
   ({ user, children }) =>
     <div>
-      <nav>
-        {user ? <WhoAmI/> : <Login/>}
-      </nav> 
+      <NavBarContainer />
       {children}
     </div>
 )
+
 
 render (
   <Provider store={store}>
@@ -37,3 +37,4 @@ render (
   </Provider>,
   document.getElementById('main')
 )
+//<Route path="/nav" component={NavBarContainer} />
