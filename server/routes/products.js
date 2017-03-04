@@ -16,21 +16,22 @@ router.get('/:id', (req, res, next) => {
   Product.findOne({
     where: {
       id: req.params.id
-    }
+    },
+    include: [{model: Review}]
   })
     .then(product => res.json(product))
     .catch(next)
 })
 
-router.get('/:id/reviews', (req, res, next) => {
-    Review.findAll({
-      where: {
-        product_id: req.params.id
-      }
-    })
-    .then(reviews => {
-      res.json(reviews);
-    })
-})
+// router.get('/:id/reviews', (req, res, next) => {
+//     Review.findAll({
+//       where: {
+//         product_id: req.params.id
+//       }
+//     })
+//     .then(reviews => {
+//       res.json(reviews);
+//     })
+// })
 
 module.exports = router;
