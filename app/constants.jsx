@@ -1,5 +1,7 @@
 export const GET_CATEGORIES = 'GET_CATEGORIES';
 
+export const GET_ORDERS = 'GET_ORDERS'
+
 export const GET_USERINFO = 'GET_USERINFO';
 export const UPDATE_USERINFO = 'UPDATE_USERINFO';
 export const GET_USER_ADDRESS = 'GET_USER_ADDRESS';

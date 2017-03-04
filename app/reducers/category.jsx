@@ -1,4 +1,3 @@
-import axios from 'axios'
 import {GET_CATEGORIES} from '../constants.jsx';
 
 const initialState =  {

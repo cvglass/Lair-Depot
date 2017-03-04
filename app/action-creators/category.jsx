@@ -1,4 +1,5 @@
 import {GET_CATEGORIES} from '../constants.jsx';
+import axios from 'axios'
 
 export const getCategories = () =>
   dispatch =>
