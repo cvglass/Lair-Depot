@@ -1,4 +1,4 @@
-import {CHANGE_NAV_VIEW} from '../constants.jsx';
+import {CHANGE_NAV_VIEW} from '../constants';
 
 export const changeView = newView => ({
   type: CHANGE_NAV_VIEW,

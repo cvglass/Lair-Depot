@@ -1,4 +1,4 @@
-import {GET_USERINFO, GET_USER_ADDRESS, UPDATE_USERINFO, UPDATE_USER_ADDRESS} from '../constants.jsx';
+import {GET_USERINFO, GET_USER_ADDRESS, UPDATE_USERINFO, UPDATE_USER_ADDRESS} from '../constants';
 
 const initialState = {info: {}, address: {}}
 

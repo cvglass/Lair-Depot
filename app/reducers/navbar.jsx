@@ -1,6 +1,6 @@
 import axios from 'axios';
 // actions
-import {CHANGE_CURRENT} from '../constants.jsx'
+import {CHANGE_CURRENT} from '../constants'
 const initialState = {
   current: {
     id: 1,
@@ -27,7 +27,7 @@ const initialState = {
     },
     {
       id: 6,
-      name: 'Orders' 
+      name: 'Orders'
     }
   ]
 

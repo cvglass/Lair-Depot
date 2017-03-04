@@ -1,4 +1,4 @@
-import {GET_CATEGORIES} from '../constants.jsx';
+import {GET_CATEGORIES} from '../constants';
 
 const initialState =  {
   list: [{
