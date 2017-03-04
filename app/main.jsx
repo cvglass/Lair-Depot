@@ -10,9 +10,8 @@ import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import Reviews from './components/Reviews'
 import CategoryContainer from './containers/CategoryContainer'
+import UserContainer from './containers/UserContainer'
 import NavBarContainer from './containers/NavbarContainer'
-
-
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
 ) (
@@ -32,9 +31,11 @@ render (
         <Route path = "/reviews" component={Reviews} />
         <Route path="/jokes" component={Jokes} />
         <Route path="/categories" component={CategoryContainer} />
+        <Route path="/profile" component={UserContainer} />
       </Route>
     </Router>
   </Provider>,
   document.getElementById('main')
 )
 //<Route path="/nav" component={NavBarContainer} />
+
