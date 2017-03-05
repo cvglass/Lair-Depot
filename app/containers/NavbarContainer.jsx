@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Navbar from '../components/Navbar';
-import {changeCurrent} from '../action-creators/navbar';
+import {changeView} from '../action-creators/navbar';
 
 const mapStateToProps = (state) => {
   return {
@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     changeCurrent(newCurr){
-      dispatch(changeCurrent(newCurr))
+      dispatch(changeView(newCurr))
     }
   }
 }
