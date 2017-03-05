@@ -1,14 +1,8 @@
 import {GET_CATEGORIES} from '../constants';
 
 const initialState =  {
-  list: [{
-    id:1,
-    name: "weapons",
-  },
-  {
-    id: 2,
-    name: "Evil Pets"
-  }],
+  list: [],
+  productList: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -17,6 +11,7 @@ const reducer = (state = initialState, action) => {
     case GET_CATEGORIES:
       newState.list = action.list;
       break;
+
     default:
       return state;
   }

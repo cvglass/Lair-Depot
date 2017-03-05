@@ -35,6 +35,12 @@
     },{
       "name": "Evil pets",
       "description": "From Mr.fluffykins to killer bees, we have what you need for your evil deeds"
+    },{
+      "name": "Furniture",
+      "description": "Stuff to sit on and look badass"
+    },{
+      "name": "Disguises",
+      "description": "Nothing to see here..."
     }
   ],
   "products":
@@ -47,6 +53,10 @@
       "name": "Laser beams",
       "description": "Pew Pew",
       "price": "200.99"
+    }, {
+      "name": "Fake Mustache",
+      "description": "Quality horse-hair mustache that attaches via tape",
+      "price": "20.11"
     }
   ],
   "category_product" :
@@ -58,6 +68,9 @@
     {
       "product_id": "2",
       "product_category_id": "1"
+    },{
+      "product_id": "3",
+      "product_category_id": "4"
     }
   ],
   "addresses":

@@ -15,3 +15,10 @@ export const listProducts = () =>
       .then(res => res.data)
       .then(products => dispatch(getProducts(products)))
       .catch(err => console.log(err));
+
+export const getProductsByCategory = (categoryId) =>
+  dispatch =>
+    axios.get(`/api/products?category=${categoryId}`)
+    .then(res => res.data)
+    .then(products => dispatch(getProducts(products)))
+    .catch(err => console.log(err))
