@@ -1,18 +1,18 @@
 import {GET_PRODUCTS, SET_PRODUCT} from '../constants';
 
 const initialState = {
-  products: [],
+  list: [],
   currentProduct: {}
 };
 
-export const productsReducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
 
   let newState = Object.assign({}, state);
 
   switch(action.type) {
 
     case GET_PRODUCTS:
-      newState.products = action.products;
+      newState.list = action.list;
       return newState;
 
     case SET_PRODUCT:
@@ -22,3 +22,5 @@ export const productsReducer = (state = initialState, action) => {
       return state;
   }
 }
+
+export default reducer;

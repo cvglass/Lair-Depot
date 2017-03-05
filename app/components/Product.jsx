@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Reviews} from './Reviews';
+import Reviews from './Reviews';
 
 export const Product = ({product, handleClick}) => {
   return (

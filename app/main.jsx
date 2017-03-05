@@ -15,8 +15,11 @@ import CategoryContainer from './containers/CategoryContainer'
 import OrdersContainer from './containers/OrdersContainer'
 import UserContainer from './containers/UserContainer'
 import NavBarContainer from './containers/NavbarContainer'
+import ProductsContainer from './containers/ProductsContainer'
+import ProductContainer from './containers/ProductContainer'
 
 import { getOrders } from './action-creators/orders'
+import { listProducts, listProduct } from './action-creators/products'
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
@@ -32,6 +35,16 @@ const onOrdersEnter = () => {
   store.dispatch(getOrders())
 }
 
+const onProductsEnter = (nextRouterState) => {
+  store.dispatch(listProducts())
+}
+
+const onProductEnter = (nextRouterState) => {
+  let productId = nextRouterState.params.id
+  console.log('productId', productId)
+  store.dispatch(listProduct(productId))
+}
+
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
@@ -40,7 +53,9 @@ render (
         <Route path = "/reviews" component={Reviews} />
         <Route path="/jokes" component={Jokes} />
         <Route path="/categories" component={CategoryContainer} />
-        <Route path="/orders" component={OrdersContainer} onEnter={onOrdersEnter}/>
+        <Route path="/products" component={ProductsContainer} onEnter={onProductsEnter} />
+        <Route path="/products/:id" component={ProductContainer} onEnter={onProductEnter} />
+        <Route path="/orders" component={OrdersContainer} onEnter={onOrdersEnter} />
         <Route path="/profile" component={UserContainer} />
       </Route>
     </Router>

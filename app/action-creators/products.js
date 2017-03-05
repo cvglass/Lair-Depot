@@ -5,7 +5,7 @@ import axios from 'axios';
 export const getProducts = (products) => {
   return {
     type: GET_PRODUCTS,
-    products
+    list: products
   }
 }
 
@@ -24,7 +24,7 @@ export const setProduct = (product) => {
   }
 }
 
-export const listSingleProduct = (productId) =>
+export const listProduct = (productId) =>
   dispatch =>
     axios.get(`/api/products/${productId}`)
       .then(res => res.data)

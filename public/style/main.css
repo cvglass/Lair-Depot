@@ -1,0 +1,12 @@
+/*general styles*/
+
+.unstyle-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*products styles*/
+
+.product-thumbnail {
+  max-width: 150px;
+}
