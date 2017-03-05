@@ -2,10 +2,10 @@ import React from 'react';
 import {Link} from 'react-router'
 import Login from './Login'
 import WhoAmI from './WhoAmI'
-const Navbar = ({current, list, changeCurrent, user, adminList}) => {
+const Navbar = ({current, list, changeCurrent, user, adminList, handleChange, inputValue, handleSubmit}) => {
   console.log('we have a Navbar')
   console.log(current);
-  
+
   return (
     <div >
       {user ? (<WhoAmI /> ): (<Login />)}
@@ -24,6 +24,14 @@ const Navbar = ({current, list, changeCurrent, user, adminList}) => {
           </Link>
         ))
       }
+      <form onSubmit={handleSubmit}>
+        <input
+          onChange={handleChange}
+          value={inputValue}
+          className="form-control"
+          placeholder="Search products"/>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   )
 }
