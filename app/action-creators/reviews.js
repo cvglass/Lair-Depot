@@ -4,7 +4,7 @@ import {GET_REVIEWS} from '../constants';
 export const getReviews = (reviews) => {
   return {
     type: GET_REVIEWS,
-    reviews
+    list: reviews
   }
 };
 

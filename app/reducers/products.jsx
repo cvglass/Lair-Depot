@@ -1,5 +1,4 @@
-import React from 'react';
-import {GET_REVIEWS} from '../constants';
+import {GET_PRODUCTS} from '../constants';
 
 const initialState = {
   list: []
@@ -7,11 +6,11 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 
-  const newState = Object.assign({}, state);
+  let newState = Object.assign({}, state);
 
-  switch (action.type) {
+  switch(action.type) {
 
-    case GET_REVIEWS:
+    case GET_PRODUCTS:
       newState.list = action.list;
       return newState;
 
@@ -21,4 +20,3 @@ const reducer = (state = initialState, action) => {
 }
 
 export default reducer;
-

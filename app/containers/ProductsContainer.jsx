@@ -5,10 +5,8 @@ import {Products} from '../components/Products';
 
 const mapStateToProps = state => {
   return {
-    products: state.products.products
+    products: state.products.list
   }
 }
 
-export default connect(
-  mapStateToProps
-)(Products);
+export default connect(mapStateToProps, null)(Products)
