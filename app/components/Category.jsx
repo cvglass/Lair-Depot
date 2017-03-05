@@ -1,12 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 const Category = ({ categories }) => {
-  console.log('our Categories list', categories);
   return (
     <ul>
       {
         categories.map((category) => {
-          return <li key={category.id}> {category.name} </li>
+          return <li className="unstyle-link" key={category.id}><Link to={`/categories/${category.id}`}><h3>{category.name}</h3></Link><p>{category.description}</p></li>
         })
       }
     </ul>

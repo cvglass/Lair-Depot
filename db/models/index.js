@@ -40,5 +40,6 @@ Review.belongsTo(Product);
 
 //product table -- add priceID, categoryID X
 Product.belongsToMany(ProductCategory, {through: 'category_product'});
+ProductCategory.belongsToMany(Product, {through: 'category_product'});
 
 module.exports = {User, Address, ProductCategory, Review, Order, Product, Cart, cart_product, order_product};

@@ -25,3 +25,7 @@
 .fullStar, .emptyStar {
   color: #FFDF00;
 }
+
+ul {
+  list-style: none;
+}
