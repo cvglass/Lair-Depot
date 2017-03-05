@@ -31,7 +31,7 @@ when more pieces are in place*/
       user: {
         name: 'hello34'
       },
-      rating: 4,
+      rating: 3,
       description: 'fdasfsadfsdfs',
     }
   ]
@@ -41,16 +41,16 @@ when more pieces are in place*/
         difference = 5 - rating,
         j;
 
-    for (let i = 0; i <= rating; i++) {
+    for (let i = 0; i < rating; i++) {
       stars.push((<li key={`${review.id}-${i}`}
-                      className="fullStar">\u2605</li>));
+                      className="fullStar">&#x2605;</li>));
       j = i + 1;
     }
 
     if (difference > 0) {
       for (let i = 0; i < difference; i++) {
         stars.push((<li key={`${review.id}-${(j + i) + difference}`}
-                        className="emptyStar"> \u2606</li>));
+                        className="emptyStar">&#x2606;</li>));
       }
     }
 
@@ -60,11 +60,11 @@ when more pieces are in place*/
 const Reviews = ({reviews}) => {
   console.log(stuff)
   return (
-    <div>
+    <div className="row">
       {stuff.map(review => {
         return (
           <div key={review.id}>
-            <ul className>{getStars(review)}</ul>
+            <ul className="review">{getStars(review)}</ul>
             <span className="reviewTitle">{review.title}</span>
             <span>By {review.user.name} on {review.created_at}</span>
             <p>{review.description}</p>

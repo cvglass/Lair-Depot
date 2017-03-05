@@ -4,13 +4,15 @@ import {connect} from 'react-redux';
 import {Product} from '../components/Product';
 
 const mapStateToProps = state => {
+  console.log('productState', state.reviews)
   return {
-    product: state.products.currentProduct
+    product: state.currentProduct.currentProduct,
+    reviews: state.reviews.list
   };
 };
 
-//temporary function for adding to cart
-//what will the cart route be?
+// temporary function for adding to cart
+// what will the cart route be?
 const mapDispatchToProps = dispatch => {
   return {
     handleClick (cartId, productId, userId) {

@@ -19,7 +19,9 @@ import ProductsContainer from './containers/ProductsContainer'
 import ProductContainer from './containers/ProductContainer'
 
 import { getOrders } from './action-creators/orders'
-import { listProducts, listProduct } from './action-creators/products'
+import { listProducts } from './action-creators/products'
+import { listProduct } from './action-creators/product'
+import { pullReviews } from './action-creators/reviews'
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
@@ -40,9 +42,10 @@ const onProductsEnter = (nextRouterState) => {
 }
 
 const onProductEnter = (nextRouterState) => {
-  let productId = nextRouterState.params.id
-  console.log('productId', productId)
-  store.dispatch(listProduct(productId))
+  let productId = nextRouterState.params.id;
+  console.log('productId', productId);
+  store.dispatch(listProduct(productId));
+  store.dispatch(pullReviews(productId));
 }
 
 render (

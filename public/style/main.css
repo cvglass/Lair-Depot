@@ -10,3 +10,18 @@
 .product-thumbnail {
   max-width: 150px;
 }
+
+.product-image {
+  max-width: 400px;
+}
+
+/*review styles*/
+.review li {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.fullStar, .emptyStar {
+  color: #FFDF00;
+}

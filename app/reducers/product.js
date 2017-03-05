@@ -1,7 +1,7 @@
-import {GET_PRODUCTS} from '../constants';
+import {SET_PRODUCT} from '../constants';
 
 const initialState = {
-  list: []
+  currentProduct: {}
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,8 +10,8 @@ const reducer = (state = initialState, action) => {
 
   switch(action.type) {
 
-    case GET_PRODUCTS:
-      newState.list = action.list;
+    case SET_PRODUCT:
+      newState.currentProduct = action.currentProduct;
       return newState;
 
     default:
