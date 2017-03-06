@@ -12,6 +12,8 @@ class NavbarContainer extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  //keep in mind that node all inputs need be controlled.
+  //It doesn't look like we ever do anything with this beyond submit it
   handleChange (evt) {
     const inputValue = evt.target.value;
     this.setState({ inputValue });
@@ -23,6 +25,7 @@ class NavbarContainer extends React.Component {
     this.setState({
       inputValue: ''
     });
+    //Use BrowserHistory.push!
     window.location.replace(`/api/products?name=${input}`);
   }
 

@@ -12,8 +12,8 @@ export const listProduct = (productId) =>
     axios.get(`/api/products/${productId}`)
       .then(res => res.data)
       .then(product => dispatch(setProduct(product)))
-      .catch(err => console.log(err));
+      .catch(err => console.log(err));  //try console.error
 
 export const findProductBySearch = productName => {
-  axios.get(`/api/products?name=${productName}`)
+  axios.get(`/api/products?name=${productName}`) //.then??
 }

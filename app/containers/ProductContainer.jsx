@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => {
   return {
     handleClick (cartId, productId, userId) {
       return dispatch(addToCart(cartId, productId, userId))
-      .then(() => {window.history.push('/cart')});
+      .then(() => {window.history.push('/cart')});  //another way of doing this!?
     }
   };
 };

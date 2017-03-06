@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from 'react-router'
 import Login from './Login'
 import WhoAmI from './WhoAmI'
+
+//unused variable current
 const Navbar = ({current, list, changeCurrent, user, adminList, handleChange, inputValue, handleSubmit}) => {
 
   return (

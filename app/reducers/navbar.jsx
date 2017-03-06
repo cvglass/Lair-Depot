@@ -1,6 +1,10 @@
 import axios from 'axios';
 // actions
 import {CHANGE_CURRENT} from '../constants'
+
+//Why is this in redux?
+//Note that only current is used in the reducer. It looks like these are used in the component visualizations?
+// Why not just let them live there?
 const initialState = {
   current: {
     id: 1,

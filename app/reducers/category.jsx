@@ -2,7 +2,7 @@ import {GET_CATEGORIES} from '../constants';
 
 const initialState =  {
   list: [],
-  productList: []
+  productList: []  //Do you need me?
 }
 
 const reducer = (state = initialState, action) => {

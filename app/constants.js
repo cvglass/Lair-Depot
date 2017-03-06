@@ -1,3 +1,5 @@
+//I don't like that all of these are in one place.
+
 export const GET_REVIEWS = 'GET_REVIEWS';
 
 export const GET_CATEGORIES = 'GET_CATEGORIES';
