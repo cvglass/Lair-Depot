@@ -3,7 +3,11 @@ import { Link } from 'react-router'
 
 const Category = ({ categories }) => {
   return (
-    <div className="categoryContainer row">
+    <div className="categoryContainer">
+      <div>
+        <h1>Categories</h1>
+      </div>
+      <div className="categoryContainer row">
       {
         categories.map((category) => {
           return (
@@ -12,12 +16,15 @@ const Category = ({ categories }) => {
                 <h3>{category.name}</h3>
               <img className="categoryImage" src={category.imageUrl} />
               </Link>
-              <p className="desc">{category.description}</p>
+              <div className="descContainer">
+                <p className="desc">{category.description}</p>
+              </div>
             </div>
             )
         })
       }
     </div>
+  </div>
   )
 }
 
