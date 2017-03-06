@@ -30,7 +30,9 @@ const ExampleApp = connect(
   ({ user, children }) =>
     <div>
       <NavBarContainer />
-      {children}
+      <div className="container-fluid allChildrenContainer" >
+        {children}
+      </div>
     </div>
 )
 

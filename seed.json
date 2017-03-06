@@ -41,6 +41,12 @@
     },{
       "name": "Disguises",
       "description": "Nothing to see here..."
+    },{
+      "name": "Henchman",
+      "description": "Expendable AND anonymous!"
+    },{
+      "name": "Health Insurance",
+      "description": "You can stay on your parents' plan until you're 26"
     }
   ],
   "products":

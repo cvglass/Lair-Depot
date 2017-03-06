@@ -5,32 +5,48 @@ import WhoAmI from './WhoAmI'
 const Navbar = ({current, list, changeCurrent, user, adminList, handleChange, inputValue, handleSubmit}) => {
 
   return (
-    <div >
-      {user ? (<WhoAmI /> ): (<Login />)}
-      <Link to='/'><button>Home</button></Link>
-      {user ? <Link to='/Profile'><button>Profile</button></Link>: null}
-      {user ?(  user.isAdmin ? adminList.map((item)=> (
-        <Link key ={item.id} to={item.name}>
-            <button onClick={() => changeCurrent(item)}> {item.name}</button>
-          </Link>
-      ))
-       : null) : null }
-      {
-        list.map((item) => (
+    <nav className="navbarContainer navbar navbar-default">
+      <div className="container-fluid">
+        <div className="col-sm-3 col-md-3">
+          <form className="navbar-form" id="submitForm" role="search" onSubmit={handleSubmit}>
+            <div className="input-group">
+              <input
+                name="q"
+                onChange={handleChange}
+                value={inputValue}
+                className="form-control"
+                placeholder="Search products" />
+              <div className="input-group-btn">
+                <button className="btn btn-primary" type="submit">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div className="col-sm-5 col-md-5" >
+        <Link to='/'><button className="btn btn-default">Home</button></Link>
+        {user ? <Link to='/Profile'><button className="btn btn-default">Profile</button></Link>: null}
+        {user ?(  user.isAdmin ? adminList.map((item)=> (
           <Link key ={item.id} to={item.name}>
-            <button onClick={() => changeCurrent(item)}> {item.name}</button>
-          </Link>
+              <button className="btn btn-default" onClick={() => changeCurrent(item)}> {item.name}</button>
+            </Link>
         ))
-      }
-      <form onSubmit={handleSubmit}>
-        <input
-          onChange={handleChange}
-          value={inputValue}
-          className="form-control"
-          placeholder="Search products"/>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+        : null) : null }
+        {
+          list.map((item) => (
+            <Link key ={item.id} to={item.name}>
+              <button className="btn btn-default" onClick={() => changeCurrent(item)}> {item.name}</button>
+            </Link>
+          ))
+        }
+        </div>
+
+        <div className="col-sm-4 col-md-4">
+        {user ? (<WhoAmI /> ): (<Login />)}
+        </div>
+
+      </div>
+    </nav>
   )
 }
 
