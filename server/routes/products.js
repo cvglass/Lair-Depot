@@ -4,6 +4,7 @@ const db = require('APP/db');
 const Product = db.model('products');
 const Review = db.model('review');
 const ProductCategory = db.model('productCategory')
+const User = db.model('users');
 const router = require('express').Router();
 
 router.get('/', (req, res, next) => {
@@ -37,7 +38,8 @@ router.get('/:id/reviews', (req, res, next) => {
     Review.findAll({
       where: {
         product_id: req.params.id
-      }
+      },
+      include: [{model: User}]
     })
     .then(reviews => {
       res.json(reviews);
