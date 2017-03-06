@@ -105,3 +105,8 @@ ul {
 #submitForm {
   width: 100%;
 }
+
+.logo {
+  max-width: 100px;
+  margin: 10px 0;
+}
