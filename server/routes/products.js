@@ -47,11 +47,12 @@ router.get('/:id/reviews', (req, res, next) => {
     .catch(next);
 })
 
-router.put('/:id/review', (req, res, next) => {
+router.post('/:id/review', (req, res, next) => {
   Review.create({
     rating: req.body.rating,
     description: req.body.description,
-    product_id: req.params.id
+    product_id: req.params.id,
+    user_id: req.body.userId
   })
 })
 

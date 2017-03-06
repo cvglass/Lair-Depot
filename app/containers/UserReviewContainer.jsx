@@ -23,30 +23,33 @@ export default connect(
       inputDescription: '',
       inputRating: 1,
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.descriptionChange = this.descriptionChange.bind(this);
+    this.ratingChange = this.ratingChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(evt) {
-    let description = evt.target.description.value;
-    let rating = evt.target.rating.value;
-    this.setState({
-      inputDescription: description,
-      inputRating: rating
-    });
+  descriptionChange(evt) {
+    this.setState(
+      {inputDescription: evt.target.value}
+    )
+  }
+
+  ratingChange(evt) {
+    this.setState(
+      {inputRating: evt.target.value}
+    )
   }
 
   handleSubmit(evt) {
-    console.log('productId', this.props.product.id);
-    console.log('rating', evt.target.rating.value);
-    console.log('text', evt.target.description.value);
+    evt.preventDefault();
     let productId = this.props.product.id;
 
-    axios.put(`/api/products/${productId}/review`, {
+    axios.post(`/api/products/${productId}/review`, {
       rating: evt.target.rating.value,
       description: evt.target.description.value,
-      product_id: productId
-    });
+      userId: this.props.user.id
+    })
+    window.location.replace(`/products/${productId}`)
   }
 
   render () {
@@ -55,10 +58,9 @@ export default connect(
         product={this.props.product}
         user={this.props.user}
         handleSubmit={this.handleSubmit}
-        handleChange={this.handleChange}
+        descriptionChange={this.descriptionChange}
+        ratingChange={this.ratingChange}
       />
     )
   }
-}
-
-)
+})
