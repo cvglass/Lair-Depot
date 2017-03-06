@@ -9,6 +9,8 @@ export const UPDATE_USERINFO = 'UPDATE_USERINFO';
 export const GET_USER_ADDRESS = 'GET_USER_ADDRESS';
 export const UPDATE_USER_ADDRESS = 'UPDATE_USER_ADDRESS';
 
+export const GET_USERS = 'GET_USERS';
+
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const SET_PRODUCT = 'SET_PRODUCT';
 

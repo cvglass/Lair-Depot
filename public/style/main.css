@@ -5,6 +5,10 @@
   text-decoration: none;
 }
 
+.btn-left {
+  margin-left: 15px;
+}
+
 /*products styles*/
 
 .product-thumbnail {

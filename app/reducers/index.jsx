@@ -4,6 +4,7 @@ const rootReducer = combineReducers({
   auth: require('./auth').default,
   category: require('./category').default,
   orders: require('./orders').default,
+  users: require('./users').default,
   user: require('./user').default,
   navbar: require('./navbar').default,
   products: require('./products').default,

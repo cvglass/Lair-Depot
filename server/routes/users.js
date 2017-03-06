@@ -6,8 +6,9 @@ const Orders = db.model('orders')
 
 const {mustBeLoggedIn, forbidden,} = require('../auth.filters')
 
+//got rid of forbidden for now
 module.exports = require('express').Router()
-	.get('/', forbidden('only admins can list users'), (req, res, next) =>
+	.get('/', (req, res, next) =>
 		User.findAll()
 		.then(users => res.json(users))
 		.catch(next))
@@ -19,6 +20,22 @@ module.exports = require('express').Router()
 		User.findById(req.params.id)
 		.then(user => res.json(user))
 		.catch(next))
+	.put('/:id', (req, res, next) => {
+		User.update({
+			isAdmin: req.body.isAdmin
+		},
+			{where: {
+				id: req.params.id
+			},
+			returning: true
+		})
+		.spread((number, updatedUser) => {
+			let user = updatedUser[0];
+			console.log(user);
+			res.send(user)
+		})
+		.catch(next)
+	})
 	.get('/:id/orders', (req, res, next) => {
 		Orders.findAll({
 			where: {
