@@ -6,10 +6,10 @@ export const Products = ({products}) => {
     <div className="productsContainer row">
       {products.map(product => {
         return (
-          <div key={product.id}>
+          <div className="col-sm-3 col-md-3" key={product.id}>
             <Link className="unstyle-link" to={`/products/${product.id}`}>
-              <img className="col-md-2 product-thumbnail" src={product.imageUrl} />
-              <div className="col-md-2">
+              <img className="product-thumbnail" src={product.imageUrl} />
+              <div className="">
                 <h4>{product.name}</h4>
                 <span>${product.price}</span>
               </div>

@@ -3,13 +3,13 @@ import { Link } from 'react-router'
 
 const Category = ({ categories }) => {
   return (
-    <ul className="categoryContainer">
+    <div className="categoryContainer row">
       {
         categories.map((category) => {
-          return <li className="unstyle-link" key={category.id}><Link to={`/categories/${category.id}`}><h3>{category.name}</h3></Link><p>{category.description}</p></li>
+          return <div className="col-sm-3 col-md-3 unstyle-link" key={category.id}><Link to={`/categories/${category.id}`}><h3>{category.name}</h3></Link><p>{category.description}</p></div>
         })
       }
-    </ul>
+    </div>
   )
 }
 

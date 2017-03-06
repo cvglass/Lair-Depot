@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const Login = ({ login }) => (
-  <form className="navbar-header"
+  <form className="navbar-header whoami"
     id="login"
     onSubmit={evt => {
     evt.preventDefault()
