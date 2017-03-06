@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
+import {addToCart} from '../action-creators/cart'
 import {Product} from '../components/Product';
 
 const mapStateToProps = state => {

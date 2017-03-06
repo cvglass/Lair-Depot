@@ -17,11 +17,13 @@ import UserContainer from './containers/UserContainer'
 import NavBarContainer from './containers/NavbarContainer'
 import ProductsContainer from './containers/ProductsContainer'
 import ProductContainer from './containers/ProductContainer'
+import CartContainer from './containers/CartContainer'
 
 import { getOrders } from './action-creators/orders'
 import { listProducts } from './action-creators/products'
 import { listProduct } from './action-creators/product'
 import { pullReviews } from './action-creators/reviews'
+import {getCart} from './action-creators/cart'
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
@@ -47,6 +49,12 @@ const onProductEnter = (nextRouterState) => {
   store.dispatch(listProduct(productId));
   store.dispatch(pullReviews(productId));
 }
+const onCartEnter = (nextRouterState) => {
+  let userId = nextRouterState.params.id;
+  let authUserId = store.getState("auth");
+  console.log(authUserId)
+  store.dispatch(getCart(userId));
+}
 
 render (
   <Provider store={store}>
@@ -60,6 +68,7 @@ render (
         <Route path="/products/:id" component={ProductContainer} onEnter={onProductEnter} />
         <Route path="/orders" component={OrdersContainer} onEnter={onOrdersEnter} />
         <Route path="/profile" component={UserContainer} />
+        <Route path="/cart/:id" onEnter={onCartEnter} component={CartContainer} />
       </Route>
     </Router>
   </Provider>,
