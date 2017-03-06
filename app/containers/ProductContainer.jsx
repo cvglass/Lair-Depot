@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {Product} from '../components/Product';
 
 const mapStateToProps = state => {
-  console.log('productState', state.reviews)
+  console.log('productState', state.reviews.list)
   return {
     product: state.currentProduct.currentProduct,
     reviews: state.reviews.list
