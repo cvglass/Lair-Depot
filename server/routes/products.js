@@ -44,6 +44,15 @@ router.get('/:id/reviews', (req, res, next) => {
     .then(reviews => {
       res.json(reviews);
     })
+    .catch(next);
+})
+
+router.put('/:id/review', (req, res, next) => {
+  Review.create({
+    rating: req.body.rating,
+    description: req.body.description,
+    product_id: req.params.id
+  })
 })
 
 module.exports = router;

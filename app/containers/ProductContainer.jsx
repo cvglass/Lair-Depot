@@ -7,7 +7,8 @@ const mapStateToProps = state => {
   console.log('productState', state.reviews.list)
   return {
     product: state.currentProduct.currentProduct,
-    reviews: state.reviews.list
+    reviews: state.reviews.list,
+    user: state.auth
   };
 };
 

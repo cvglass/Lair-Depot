@@ -2,8 +2,7 @@ import React from 'react';
 
 import Reviews from './Reviews';
 
-export const Product = ({product, handleClick, reviews}) => {
-  console.log('product', product)
+export const Product = ({user, product, handleClick, reviews}) => {
 
   return (
     <div>
@@ -18,7 +17,7 @@ export const Product = ({product, handleClick, reviews}) => {
           <button onClick={handleClick} type="button">Add to cart</button>
         </div>
       </div>
-      <Reviews reviews={reviews} />
+      <Reviews product={product} user={user} reviews={reviews} />
     </div>
   )
 }
