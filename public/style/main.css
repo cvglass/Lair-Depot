@@ -34,14 +34,6 @@ ul {
 
 }
 
-.navbarContainer {
-
-}
-
-.navbarContainer .bar {
-  padding-top: 10px;
-}
-
 .profileContainer {
 
 }
@@ -54,12 +46,24 @@ ul {
 
 }
 
-.whoami {
+.navbarContainer {
 
 }
 
-button {
+.navbarContainer .bar {
+  padding-top: 10px;
+}
 
+.whoami {
+  float: left;
+}
+
+.whoami-user-name {
+  padding-right: 25px;
+}
+
+#login {
+  float:left;
 }
 
 .logout {
@@ -67,5 +71,5 @@ button {
 }
 
 #submitForm {
-  display: inline-block;
+  width: 100%;
 }

@@ -1,7 +1,9 @@
 import React from 'react'
 
 export const Login = ({ login }) => (
-  <form onSubmit={evt => {
+  <form className="navbar-header"
+    id="login"
+    onSubmit={evt => {
     evt.preventDefault()
     login(evt.target.username.value, evt.target.password.value)
   } }>
@@ -16,5 +18,4 @@ import {connect} from 'react-redux'
 
 export default connect (
   state => ({}),
-  {login},
-) (Login)
+  {login}) (Login)

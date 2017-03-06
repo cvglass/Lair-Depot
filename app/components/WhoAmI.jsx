@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const WhoAmI = ({ user, logout }) => (
-  <div display="inline-block" className="whoami">
+  <div className="navbar-header whoami">
     <span className="whoami-user-name">{user && user.name}</span>
     <button className="logout btn btn-primary" onClick={logout}>Logout</button>
   </div>
