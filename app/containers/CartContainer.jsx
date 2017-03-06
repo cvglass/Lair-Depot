@@ -10,10 +10,8 @@ const mapStateToProps = (state) =>{
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    ToCart (cart, product, user, quantity){
-      console.log('clicked')
-      dispatch(addToCart(cart, product, user, quantity))
-      console.log('dispatched?')
+    ToCart (cart, product, user, quantity, products){
+      dispatch(addToCart(cart, product, user, quantity, products))
     }
   }
 }

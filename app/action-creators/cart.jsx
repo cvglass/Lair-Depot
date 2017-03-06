@@ -11,7 +11,6 @@ export const getCart = (userID) => {
     axios.get(`/api/carts/${userID}`)
     .then(userCart => {
       const CartId = userCart.data.id;
-      //console.log(CartId);
       axios.get(`/api/cart/${CartId}`)
         .then(products => dispatch(setCart({
           id: CartId,
@@ -26,45 +25,45 @@ export const addCart = (item) => ({
   newProduct: item,
 })
 const updateProducts = (prodArr, item) => {
-  console.log(prodArr)
+  const newArr = []
   for (var prod in prodArr){
-    if (prod.cart_id === item.cart_id && prod.product_id === item.product_id){
-      prod.cart = item;
+    if (prodArr[prod].cart_id === item.cart_id && prodArr[prod].product_id === item.product_id){
+      newArr[prod] = item;
+    }
+    else{
+    newArr[prod] = prodArr[prod]
+
     }
   }
-  return prodArr;
+  return newArr;
 }
 
 export const updateCart = (products) => ({
   type: UPDATE_CART,
   products: products
 })
-export const addToCart = (cartId, productId, userId, quantity, products) => {
-  return (dispatch) => {
-    console.log('cool?')
+
+export const addToCart = (cartId, productId, userId, quantity, products) => 
+  dispatch =>
     axios.post(`/api/cart/`, {
       quantity: quantity,
       cart_id: cartId,
       product_id: productId,
     })
     .then(newCartItem => {
-    console.log(newCartItem)
     const item = newCartItem.data.item;
     const created = newCartItem.data.created;
-    if (created){
-      dispatch(addCart(item))
-    }
-    else{
-      console.log('we just updated an item',item)
-      const newitem = Object.assign(item, {quantity: quantity})
-      axios.put('/api/cart/', newitem)
-      .then(updatedItem => {
-        console.log(updatedItem);
-        dispatch((updateCart(updateProducts(products, updatedItem)))
-      )}
+    const newitem = Object.assign(item, {quantity: quantity})
+    axios.put('/api/cart/', newitem)
+    .then(() => {
+      if (created){
+        dispatch(addCart(newitem))
+      }
+      else {
+        dispatch((updateCart(updateProducts(products, newitem)))
       )
-    }
+      }
+    })
   })
-  }
-}
+
 
