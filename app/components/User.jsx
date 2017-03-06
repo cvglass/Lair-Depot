@@ -2,7 +2,7 @@ import React from 'react';
 
 const User = ({auth, address, info}) => {
   return (
-    <div>
+    <div className="profileContainer">
       {auth? (
         <div>
 

@@ -6,7 +6,7 @@ export const Product = ({product, handleClick}) => {
   console.log('product', product)
 
   return (
-    <div>
+    <div className="productContainer">
       <div className="row">
         <img className="col-md-4 product-image" src={product.imageUrl} />
         <div className="col-md-5">

@@ -29,3 +29,43 @@
 ul {
   list-style: none;
 }
+
+.categoryContainer {
+
+}
+
+.navbarContainer {
+
+}
+
+.navbarContainer .bar {
+  padding-top: 10px;
+}
+
+.profileContainer {
+
+}
+
+.productsContainer {
+
+}
+
+.productContainer {
+
+}
+
+.whoami {
+
+}
+
+button {
+
+}
+
+.logout {
+
+}
+
+#submitForm {
+  display: inline-block;
+}

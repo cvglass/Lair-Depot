@@ -7,32 +7,36 @@ const Navbar = ({current, list, changeCurrent, user, adminList, handleChange, in
   console.log(current);
 
   return (
-    <div >
+    <nav className="navbarContainer navbar navbar-default">
+      <div class="container-fluid">
       {user ? (<WhoAmI /> ): (<Login />)}
-      <Link to='/'><button>Home</button></Link>
-      {user ? <Link to='/Profile'><button>Profile</button></Link>: null}
+      <div className="bar">
+      <Link to='/'><button className="btn btn-default">Home</button></Link>
+      {user ? <Link to='/Profile'><button className="btn btn-default">Profile</button></Link>: null}
       {user ?(  user.isAdmin ? adminList.map((item)=> (
         <Link key ={item.id} to={item.name}>
-            <button onClick={() => changeCurrent(item)}> {item.name}</button>
+            <button className="btn btn-default" onClick={() => changeCurrent(item)}> {item.name}</button>
           </Link>
       ))
        : null) : null }
       {
         list.map((item) => (
           <Link key ={item.id} to={item.name}>
-            <button onClick={() => changeCurrent(item)}> {item.name}</button>
+            <button className="btn btn-default" onClick={() => changeCurrent(item)}> {item.name}</button>
           </Link>
         ))
       }
-      <form onSubmit={handleSubmit}>
+      </div>
+      <form id="submitForm" onSubmit={handleSubmit}>
+        <button className="btn btn-primary" type="submit">Submit</button>
         <input
           onChange={handleChange}
           value={inputValue}
           className="form-control"
           placeholder="Search products"/>
-        <button type="submit">Submit</button>
       </form>
-    </div>
+      </div>
+    </nav>
   )
 }
 
