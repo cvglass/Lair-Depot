@@ -2,7 +2,7 @@ import React from 'react';
 
 import Reviews from './Reviews';
 
-export const Product = ({product, handleClick}) => {
+export const Product = ({product, handleClick, reviews}) => {
   console.log('product', product)
 
   return (
@@ -18,7 +18,7 @@ export const Product = ({product, handleClick}) => {
           <button onClick={handleClick} type="button">Add to cart</button>
         </div>
       </div>
-      <Reviews reviews={product.reviews} />
+      <Reviews reviews={reviews} />
     </div>
   )
 }

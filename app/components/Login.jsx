@@ -10,6 +10,7 @@ export const Login = ({ login }) => (
     <input name="username" />
     <input name="password" type="password" />
     <input className="btn btn-primary" type="submit" value="Login" />
+    <a href="/api/auth/login/google?key=AIzaSyDPoKV06q3FxLNr-YcVN-z1XRrEKVA1ELM">Login with Google</a>
   </form>
 )
 

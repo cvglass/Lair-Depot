@@ -4,6 +4,7 @@ const db = require('APP/db');
 const Product = db.model('products');
 const Review = db.model('review');
 const ProductCategory = db.model('productCategory')
+const User = db.model('users');
 const router = require('express').Router();
 
 router.get('/', (req, res, next) => {
@@ -15,6 +16,16 @@ router.get('/', (req, res, next) => {
       include: [Product]
     })
     .then(category => res.json(category.products))
+    .catch(next)
+  } else if (req.query.name) {
+    Product.findOne({
+      where: {
+        name: req.query.name
+      }
+    })
+    .then(product => {
+      if (!product) res.json({})
+      else res.redirect(`/products/${product.id}`)})
     .catch(next)
   } else {
     Product.findAll({})
@@ -37,7 +48,8 @@ router.get('/:id/reviews', (req, res, next) => {
     Review.findAll({
       where: {
         product_id: req.params.id
-      }
+      },
+      include: [{model: User}]
     })
     .then(reviews => {
       res.json(reviews);

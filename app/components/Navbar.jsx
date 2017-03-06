@@ -3,8 +3,6 @@ import {Link} from 'react-router'
 import Login from './Login'
 import WhoAmI from './WhoAmI'
 const Navbar = ({current, list, changeCurrent, user, adminList, handleChange, inputValue, handleSubmit}) => {
-  console.log('we have a Navbar')
-  console.log(current);
 
   return (
     <nav className="navbarContainer navbar navbar-default">
