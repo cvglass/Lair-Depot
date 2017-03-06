@@ -8,9 +8,10 @@ const mapStateToProps = (state) => {
   }
 }
 
+// just pass in null :)
 const mapDispatchToProps = (dispatch) => {
   return {
-    
+
   }
 }
 
@@ -18,5 +19,5 @@ export default connect(mapStateToProps,mapDispatchToProps)(Category)
 
 
 
-// reducer for categories 
+// reducer for categories
 // that state will have categoriesList

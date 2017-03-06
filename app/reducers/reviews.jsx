@@ -2,6 +2,7 @@ import React from 'react';
 import {GET_REVIEWS} from '../constants';
 
 const initialState = {
+  //Object mapping ids to reviews
   list: []
 };
 

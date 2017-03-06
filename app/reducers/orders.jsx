@@ -1,6 +1,7 @@
 import { GET_ORDERS } from '../constants';
 
 const initialState = {
+  //Should probably be an object mapping IDs to order info?
   list: []
 }
 

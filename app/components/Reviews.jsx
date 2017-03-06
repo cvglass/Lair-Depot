@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+//don't commit meeee
 /*not sure if this will work; need to test
 when more pieces are in place*/
 
@@ -11,7 +13,7 @@ const getStars = (review) => {
 
   for (let i = 0; i < rating; i++) {
     stars.push((<li key={`${review.id}-${i}`}
-                    className="fullStar">&#x2605;</li>));
+                    className="fullStar">&#x2605;</li>));  //I had no idea star was unicode... cool!
     j = i + 1;
   }
 

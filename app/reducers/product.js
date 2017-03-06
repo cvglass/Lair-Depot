@@ -1,6 +1,7 @@
 import {SET_PRODUCT} from '../constants';
 
 const initialState = {
+  //integer that is a product id
   currentProduct: {}
 };
 

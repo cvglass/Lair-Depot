@@ -1,6 +1,7 @@
 import {GET_PRODUCTS} from '../constants';
 
 const initialState = {
+  //List of product ids
   list: []
 };
 

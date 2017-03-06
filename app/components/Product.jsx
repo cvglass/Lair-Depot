@@ -3,7 +3,7 @@ import React from 'react';
 import Reviews from './Reviews';
 
 export const Product = ({product, handleClick, reviews}) => {
-  console.log('product', product)
+  console.log('product', product) //Don't commit me!
 
   return (
     <div className="productContainer">
