@@ -18,8 +18,9 @@ const User = require('./user');
 OAuth.belongsTo(User)
 User.hasOne(OAuth)
 //cart_product table
-Cart.belongsToMany(Product, {through: cart_product});
-Product.belongsToMany(Cart, {through: cart_product});
+Cart.belongsToMany(Product, {through: cart_product}); 
+Product.belongsToMany(Cart, {through: cart_product}); //{onDelete: 'CASCADE'}??? to force assoications do be deleted?
+
 
 //shopping cart table -- add userID
 Cart.belongsTo(User);
