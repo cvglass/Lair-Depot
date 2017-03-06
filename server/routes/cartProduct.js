@@ -7,9 +7,32 @@ module.exports = require('express').Router()
     .then(cartProducts => res.json(cartProducts))
     .catch(next)
   })
-  .post('/', (req, res, next) =>{
+  // .post('/', (req, res, next) =>{
+  //   console.log(req.body.cart_id)
+  //   cartProduct.findOrCreate({where: {cart_id: req.body.cart_id, product_id: req.body.product_id }})
+  //   .spread((newItem, created) => {
+  //     cartProduct.update({quantity: req.body.quantity},{ where:{
+  //       cart_id: newItem.cart_id,
+  //       product_id: newItem.product_id
+  //     }}
+  //     )}
+  //   )
+  //   .then(product => res.json(product))
+  //   .catch(next)
+  // })
+  .post('/', (req, res, next) => {
+    cartProduct.findOrCreate({where: {cart_id: req.body.cart_id, product_id: req.body.product_id}})
+    .spread((newItem, created) => {
+      res.json({item: newItem, created: created})
+    })
+    .catch(next)
+  })
+  .put('/', (req, res, next) => {
     console.log(req.body)
-    cartProduct.create(req.body) // might need to be find or create then have conditional dispatch based on if new was created or not. OR HAVE PUT ALSO
-    .then(newItem => res.json(newItem))
+    cartProduct.update({quantity: req.body.quantity}, { where: {
+      cart_id: req.body.cart_id,
+      product_id: req.body.cart_id
+    }})
+    .then(updatedItem => res.json(updatedItem))
     .catch(next)
   })

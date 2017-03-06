@@ -8,6 +8,7 @@ const mapStateToProps = state => {
   return {
     product: state.currentProduct.currentProduct,
     reviews: state.reviews.list
+    
   };
 };
 

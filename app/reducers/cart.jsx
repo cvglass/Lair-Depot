@@ -1,4 +1,4 @@
-import {ADD_TO_CART, REMOVE_FROM_CART, SUBMIT_CART, SET_CART} from '../constants';
+import {ADD_TO_CART, REMOVE_FROM_CART, UPDATE_CART, SUBMIT_CART, SET_CART} from '../constants';
 
 const initialState = {
   cart: {
@@ -19,6 +19,9 @@ const reducer = (state = initialState, action) => {
       break;
     case SET_CART:
       newState.cart = action.cart;
+      break;
+    case UPDATE_CART:
+      newState.cart.products = action.products;
       break;
     default:
       return state
