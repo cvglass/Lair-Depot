@@ -17,10 +17,9 @@ export const listUsers = () => {
   }
 }
 
-/* this seems very inefficient; how can we do this without pulling everywhere? */
+/* not working yet */
 export const makeAdmin = (userId) => {
   axios.put(`/api/users/${userId}`, {isAdmin: 'true'})
     .then(res => res.data)
-    .then(user => listUsers())
     .catch(err => console.log(err))
 }
