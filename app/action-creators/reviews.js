@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_REVIEWS} from '../constants';
+import {GET_REVIEWS, ADD_REVIEW} from '../constants';
 
 export const getReviews = (reviews) => {
   return {

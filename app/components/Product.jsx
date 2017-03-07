@@ -7,7 +7,8 @@ for (var i = 0; i < 100; i++){
   arr.push(i);
 }
 
-export const Product = ({change, handleClick, product, products, cartId, userId, inputValue}) => {
+
+export const Product = ({change, handleClick, product, products, cartId, user, userId, inputValue, reviews}) => {
   return (
     <div className="productContainer">
       <div className="row">
@@ -28,7 +29,7 @@ export const Product = ({change, handleClick, product, products, cartId, userId,
           </Link>
         </div>
       </div>
-      <Reviews reviews={reviews} />
+      <Reviews product={product} user={user} reviews={reviews} />
     </div>
   )
 }

@@ -17,6 +17,7 @@ import UserContainer from './containers/UserContainer'
 import NavBarContainer from './containers/NavbarContainer'
 import ProductsContainer from './containers/ProductsContainer'
 import ProductContainer from './containers/ProductContainer'
+import UserReviewContainer from './containers/UserReviewContainer'
 import CartContainer from './containers/CartContainer'
 
 import { getOrders } from './action-creators/orders'
@@ -69,10 +70,11 @@ render (
         <IndexRedirect to="/categories" />
         <Route path = "/reviews" component={Reviews} />
         <Route path="/jokes" component={Jokes} />
-        <Route path="/categories" component={CategoryContainer} onEnter={onCategoriesEnter}/>
+        <Route path="/categories" component={CategoryContainer} onEnter={onCategoriesEnter} />
         <Route path="/categories/:id" component={ProductsContainer} onEnter={onCategoryEnter} />
         <Route path="/products" component={ProductsContainer} onEnter={onProductsEnter} />
         <Route path="/products/:id" component={ProductContainer} onEnter={onProductEnter} />
+        <Route path="/products/:id/review" component={UserReviewContainer} />
         <Route path="/orders" component={OrdersContainer} onEnter={onOrdersEnter} />
         <Route path="/profile" component={UserContainer} />
         <Route path="/cart"  component={CartContainer} />

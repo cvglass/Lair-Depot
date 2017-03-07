@@ -10,6 +10,7 @@ const mapStateToProps = state => {
     products: state.carts.cart.products,
     cartId: state.carts.cart.id,
     userId: state.auth.id,
+    user: state.auth
   };
 };
 
