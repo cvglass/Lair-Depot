@@ -18,11 +18,13 @@ import NavBarContainer from './containers/NavbarContainer'
 import ProductsContainer from './containers/ProductsContainer'
 import ProductContainer from './containers/ProductContainer'
 import UserReviewContainer from './containers/UserReviewContainer'
+import CartContainer from './containers/CartContainer'
 
 import { getOrders } from './action-creators/orders'
 import { listProducts, getProductsByCategory } from './action-creators/products'
 import { listProduct } from './action-creators/product'
 import { pullReviews } from './action-creators/reviews'
+import {getCart} from './action-creators/cart'
 import { getCategories } from './action-creators/category'
 
 const ExampleApp = connect(
@@ -31,7 +33,9 @@ const ExampleApp = connect(
   ({ user, children }) =>
     <div>
       <NavBarContainer />
-      {children}
+      <div className="container-fluid allChildrenContainer" >
+        {children}
+      </div>
     </div>
 )
 
@@ -73,6 +77,7 @@ render (
         <Route path="/products/:id/review" component={UserReviewContainer} />
         <Route path="/orders" component={OrdersContainer} onEnter={onOrdersEnter} />
         <Route path="/profile" component={UserContainer} />
+        <Route path="/cart"  component={CartContainer} />
       </Route>
     </Router>
   </Provider>,

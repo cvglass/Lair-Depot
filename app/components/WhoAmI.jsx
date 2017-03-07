@@ -1,9 +1,10 @@
 import React from 'react'
-
-export const WhoAmI = ({ user, logout }) => (
-  <div display="inline-block" className="whoami">
+import {getCart} from '../action-creators/cart'
+export const WhoAmI = ({ user, logout, getCart }) => (
+  <div className="navbar-header whoami">
     <span className="whoami-user-name">{user && user.name}</span>
-    <button className="logout" onClick={logout}>Logout</button>
+    {getCart(user.id)}
+    <button className="logout btn btn-primary" onClick={logout}>Logout</button>
   </div>
 )
 
@@ -12,5 +13,5 @@ import {connect} from 'react-redux'
 
 export default connect (
   ({ auth }) => ({ user: auth }),
-  {logout},
+  {logout, getCart},
 ) (WhoAmI)

@@ -17,6 +17,16 @@ router.get('/', (req, res, next) => {
     })
     .then(category => res.json(category.products))
     .catch(next)
+  } else if (req.query.name) {
+    Product.findOne({
+      where: {
+        name: req.query.name
+      }
+    })
+    .then(product => {
+      if (!product) res.json({})
+      else res.redirect(`/products/${product.id}`)})
+    .catch(next)
   } else {
     Product.findAll({})
       .then(products => res.json(products))

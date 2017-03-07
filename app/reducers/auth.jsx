@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {getCart} from '../reducers/cart'
 
 const reducer = (state=null, action) => {
   switch(action.type) {
