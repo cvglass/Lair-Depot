@@ -1,17 +1,17 @@
 import React from 'react';
 
-const User = ({auth, address, info}) => {
+const User = ({auth, address}) => {
+
+  console.log("address is: ", address);
   return (
     <div className="profileContainer">
-      {auth? (
+      {auth && address ? (
         <div>
 
-        <h2>Profile: {auth.name}</h2>
+        <h1>{auth.name}</h1>
           <ul>
             <li>Email: {auth.email}</li>
-            <li>Password: {auth.password}</li>
-            <li>Admin Status: {auth.isAdmin}</li>
-            <li>Billing Address:</li>
+            <li>Billing Address: {address}</li>
           </ul>
         </div>) : null }
     </div>

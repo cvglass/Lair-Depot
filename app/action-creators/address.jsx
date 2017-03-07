@@ -1,19 +1,5 @@
-import {GET_USERINFO, GET_USER_ADDRESS, UPDATE_USERINFO, UPDATE_USER_ADDRESS} from '../constants';
+import {GET_USER_ADDRESS, UPDATE_USER_ADDRESS} from '../constants';
 import axios from 'axios';
-
-export const updateUserInfo = (userInfo) => {
-  return {
-    type: UPDATE_USERINFO,
-    info: userInfo
-  }
-}
-
-export const getUserInfo = (userInfo) => {
-  return {
-    type: GET_USERINFO,
-    info: userInfo
-  }
-}
 
 export const getUserAddress = (addressInfo) => {
   return {
@@ -29,14 +15,11 @@ export const updateUserAddress = (addressInfo) => {
   }
 }
 
-export const retrieveUserInfo = (userID) => {
+export const retrieveUserAddress = (userID) => {
   return (dispatch) => {
     axios.get(`/api/users/${userID}`)
-    .then( info => {
-      dispatch(getUserInfo(info.data))
-      return info.address_id
-    })
-    .then(addressID => {
+    .then(info => {
+      let addressID = info.data.address_id;
       axios.get(`/api/addresses/${addressID}`)
       .then(addressInfo => dispatch(getUserAddress(addressInfo.data.billingInfo)))
     })

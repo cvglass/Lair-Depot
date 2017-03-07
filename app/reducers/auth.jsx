@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {UPDATE_USERINFO} from '../constants';
 
 const reducer = (state=null, action) => {
   switch(action.type) {
@@ -12,6 +13,13 @@ const AUTHENTICATED = 'AUTHENTICATED'
 export const authenticated = user => ({
   type: AUTHENTICATED, user
 })
+
+export const updateUserInfo = (userInfo) => {
+  return {
+    type: UPDATE_USERINFO,
+    info: userInfo
+  }
+}
 
 export const login = (username, password) =>
   dispatch =>

@@ -23,6 +23,7 @@ import { listProducts, getProductsByCategory } from './action-creators/products'
 import { listProduct } from './action-creators/product'
 import { pullReviews } from './action-creators/reviews'
 import { getCategories } from './action-creators/category'
+import { retrieveUserAddress } from './action-creators/address.jsx';
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
@@ -35,6 +36,12 @@ const ExampleApp = connect(
       </div>
     </div>
 )
+
+const onProfileEnter = (nextRouterState) => {
+  //let userId =  store.getState().auth.id;
+  let userId = nextRouterState.params.id;
+  store.dispatch(retrieveUserAddress(userId));
+}
 
 const onOrdersEnter = () => {
   store.dispatch(getOrders())
@@ -53,6 +60,9 @@ const onProductEnter = (nextRouterState) => {
 
 const onCategoriesEnter = (nextRouterState) => {
   store.dispatch(getCategories())
+  //added for test of address retrieval
+  let userId =  store.getState().auth.id;
+  store.dispatch(retrieveUserAddress(userId));
 }
 
 const onCategoryEnter = (nextRouterState) => {
