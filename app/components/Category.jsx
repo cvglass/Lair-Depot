@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-const Category = ({ categories }) => {
-  return (
+
+const Category = ({user, categories }) => {
+
+  let userView = (
     <div className="categoryContainer">
       <div>
         <h1>Categories</h1>
@@ -24,7 +26,22 @@ const Category = ({ categories }) => {
         })
       }
     </div>
-  </div>
+  </div>)
+
+  let nonuserView = (
+    <div className="magic-land">
+      <h1>Magic Land!</h1>
+      <h3>Yay!  Unicorns and rainbows!</h3>
+      <img className="psych" src="/img/magic-land.jpg" />
+      <p>Nothing to see here!</p>
+    </div>
+  )
+
+  return (
+    <div>
+      {user && userView}
+      {!user && nonuserView}
+    </div>
   )
 }
 
