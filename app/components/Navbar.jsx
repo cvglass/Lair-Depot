@@ -8,7 +8,9 @@ const Navbar = ({current, list, changeCurrent, user, adminList, handleChange, in
     <nav className="navbarContainer navbar navbar-default">
       <div className="container-fluid">
         <div className="col-sm-1 col-md-1">
-          <img className="logo" src="/img/logo.png" />
+          <a href="/">
+            <img className="logo" src="/img/logo.png" />
+          </a>
         </div>
 
         <div className="col-sm-3 col-md-3">
