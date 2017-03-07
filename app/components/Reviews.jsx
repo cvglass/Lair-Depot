@@ -29,7 +29,7 @@ const getStars = (review) => {
 const Reviews = ({product, user, reviews}) => {
 
   let numReviews = reviews.length;
-
+  console.log('user', user);
   return (
     <div>
       {
