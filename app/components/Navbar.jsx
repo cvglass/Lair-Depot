@@ -26,15 +26,13 @@ const Navbar = ({current, list, changeCurrent, user, adminList, handleChange, in
             </div>
           </form>
         </div>
-
         <div className="col-sm-4 col-md-4" >
         <Link to='/'><button className="btn btn-default">Home</button></Link>
-        {user ? <Link to='/Profile'><button className="btn btn-default">Profile</button></Link>: null}
+        {user ? <Link to='/profile'><button className="btn btn-default">Profile</button></Link>: null}
         {user ?(  user.isAdmin ? adminList.map((item)=> (
           <Link key ={item.id} to={item.name}>
               <button className="btn btn-default" onClick={() => changeCurrent(item)}> {item.name}</button>
-            </Link>
-        ))
+            </Link>))
         : null) : null }
         {
           list.map((item) => (

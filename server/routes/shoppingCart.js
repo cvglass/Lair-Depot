@@ -3,12 +3,12 @@ const ShoppingCart = db.model('cart');
 
 module.exports = require('express').Router()
   .get('/:userID', (req, res, next) => {
-    ShoppingCart.findOne({where: {userId: req.params.userID}})
+    ShoppingCart.findOne({where: {user_id: req.params.userID}})
     .then(cart => res.json(cart))
     .catch(next)
   })
   .put('/:userID', (req, res, next) => {
-    ShoppingCart.findOne({where: {userId: req.params.userID}})
+    ShoppingCart.findOne({where: {user_id: req.params.userID}})
     .then(cart => {
       cart.update(req.body);
       res.status(202).json(cart);
@@ -21,6 +21,6 @@ module.exports = require('express').Router()
     .catch(next)
   })
   .delete('/:userID', (req, res, next) => {
-    ShoppingCart.destroy({where: {userId: req.params.userID}})
+    ShoppingCart.destroy({where: {user_id: req.params.userID}})
     .then( () => res.status(204))
   })

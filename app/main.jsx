@@ -17,11 +17,13 @@ import UserContainer from './containers/UserContainer'
 import NavBarContainer from './containers/NavbarContainer'
 import ProductsContainer from './containers/ProductsContainer'
 import ProductContainer from './containers/ProductContainer'
+import CartContainer from './containers/CartContainer'
 
 import { getOrders } from './action-creators/orders'
 import { listProducts, getProductsByCategory } from './action-creators/products'
 import { listProduct } from './action-creators/product'
 import { pullReviews } from './action-creators/reviews'
+import {getCart} from './action-creators/cart'
 import { getCategories } from './action-creators/category'
 
 const ExampleApp = connect(
@@ -73,6 +75,7 @@ render (
         <Route path="/products/:id" component={ProductContainer} onEnter={onProductEnter} />
         <Route path="/orders" component={OrdersContainer} onEnter={onOrdersEnter} />
         <Route path="/profile" component={UserContainer} />
+        <Route path="/cart"  component={CartContainer} />
       </Route>
     </Router>
   </Provider>,
