@@ -8,9 +8,8 @@ for (var i = 0; i < 100; i++){
 }
 
 export const Product = ({change, handleClick, product, products, cartId, userId, inputValue}) => {
-  
   return (
-    <div>
+    <div className="productContainer">
       <div className="row">
         <img className="col-md-4 product-image" src={product.imageUrl} />
         <div className="col-md-5">
@@ -29,7 +28,7 @@ export const Product = ({change, handleClick, product, products, cartId, userId,
           </Link>
         </div>
       </div>
-      <Reviews reviews={product.reviews} />
+      <Reviews reviews={reviews} />
     </div>
   )
 }

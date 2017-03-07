@@ -1,15 +1,30 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 const Category = ({ categories }) => {
-  console.log('our Categories list', categories);
   return (
-    <ul>
+    <div className="categoryContainer">
+      <div>
+        <h1>Categories</h1>
+      </div>
+      <div className="categoryContainer row">
       {
         categories.map((category) => {
-          return <li key={category.id}> {category.name} </li>
+          return (
+            <div className="col-sm-4 col-md-4 unstyle-link" key={category.id}>
+              <Link to={`/categories/${category.id}`}>
+                <h3>{category.name}</h3>
+              <img className="categoryImage" src={category.imageUrl} />
+              </Link>
+              <div className="descContainer">
+                <p className="desc">{category.description}</p>
+              </div>
+            </div>
+            )
         })
       }
-    </ul>
+    </div>
+  </div>
   )
 }
 

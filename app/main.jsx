@@ -20,10 +20,11 @@ import ProductContainer from './containers/ProductContainer'
 import CartContainer from './containers/CartContainer'
 
 import { getOrders } from './action-creators/orders'
-import { listProducts } from './action-creators/products'
+import { listProducts, getProductsByCategory } from './action-creators/products'
 import { listProduct } from './action-creators/product'
 import { pullReviews } from './action-creators/reviews'
 import {getCart} from './action-creators/cart'
+import { getCategories } from './action-creators/category'
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
@@ -31,7 +32,9 @@ const ExampleApp = connect(
   ({ user, children }) =>
     <div>
       <NavBarContainer />
-      {children}
+      <div className="container-fluid allChildrenContainer" >
+        {children}
+      </div>
     </div>
 )
 
@@ -50,6 +53,14 @@ const onProductEnter = (nextRouterState) => {
   store.dispatch(pullReviews(productId));
 }
 
+const onCategoriesEnter = (nextRouterState) => {
+  store.dispatch(getCategories())
+}
+
+const onCategoryEnter = (nextRouterState) => {
+  let categoryId = nextRouterState.params.id;
+  store.dispatch(getProductsByCategory(categoryId))
+}
 
 render (
   <Provider store={store}>
@@ -58,7 +69,8 @@ render (
         <IndexRedirect to="/categories" />
         <Route path = "/reviews" component={Reviews} />
         <Route path="/jokes" component={Jokes} />
-        <Route path="/categories" component={CategoryContainer} />
+        <Route path="/categories" component={CategoryContainer} onEnter={onCategoriesEnter}/>
+        <Route path="/categories/:id" component={ProductsContainer} onEnter={onCategoryEnter} />
         <Route path="/products" component={ProductsContainer} onEnter={onProductsEnter} />
         <Route path="/products/:id" component={ProductContainer} onEnter={onProductEnter} />
         <Route path="/orders" component={OrdersContainer} onEnter={onOrdersEnter} />
