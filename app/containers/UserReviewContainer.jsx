@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
+import {browserHistory} from 'react-router';
 
 import UserReview from '../components/UserReview';
 import {submitReview} from '../action-creators/reviews';
@@ -49,7 +50,7 @@ export default connect(
       description: evt.target.description.value,
       userId: this.props.user.id
     })
-    window.location.replace(`/products/${productId}`)
+    browserHistory.push(`/products/${productId}`);
   }
 
   render () {
