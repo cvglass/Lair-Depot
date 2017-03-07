@@ -35,14 +35,17 @@ class ProductContainer extends React.Component {
     const inputV= evt.target.value;
     this.setState({inputValue: inputV});
   }
-   
+
   render(){
     return <Product state={this.state} handleClick={this.props.handleClick} product ={this.props.product}
       reviews= {this.props.reviews}
       products= {this.props.products}
       cartId={this.props.cartId}
       inputValue={this.state.inputValue}
-      userId= {this.props.userId} change={this.handleChange} />
+      userId= {this.props.userId}
+      change={this.handleChange}
+      user = {this.props.user}
+    />
   }
 
 }
