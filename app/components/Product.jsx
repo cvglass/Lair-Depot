@@ -3,7 +3,7 @@ import React from 'react';
 import Reviews from './Reviews';
 import {Link} from 'react-router'
 const arr = [];
-for (var i = 0; i < 100; i++){
+for (var i = 1; i < 101; i++){
   arr.push(i);
 }
 
