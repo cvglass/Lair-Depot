@@ -84,7 +84,7 @@ const onCartEnter = () => {
       const prod = displayProducts.map((product, ind) => {
         product.data.quantity = products[ind].quantity;
       return product.data
-      })
+    })
     store.dispatch(setDisplay(prod))
 
     } )
@@ -105,7 +105,7 @@ render (
         <Route path="/products/:id/review" component={UserReviewContainer} />
         <Route path="/orders" component={OrdersContainer} onEnter={onOrdersEnter} />
         <Route path="/profile/:id" component={UserContainer} onEnter={onProfileEnter} />
-        <Route path="/cart"  component={CartContainer} />
+        <Route path="/cart" onEnter={onCartEnter} component={CartContainer} />
       </Route>
     </Router>
   </Provider>,
