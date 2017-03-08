@@ -20,12 +20,13 @@ import ProductContainer from './containers/ProductContainer'
 import UserReviewContainer from './containers/UserReviewContainer'
 import CartContainer from './containers/CartContainer'
 
-import { getOrders } from './action-creators/orders'
+import { getOrders, getUserOrders } from './action-creators/orders'
 import { listProducts, getProductsByCategory } from './action-creators/products'
 import { listProduct } from './action-creators/product'
 import { pullReviews } from './action-creators/reviews'
 import {getCart} from './action-creators/cart'
 import { getCategories } from './action-creators/category'
+import { retrieveUserAddress } from './action-creators/address.jsx';
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
@@ -38,6 +39,13 @@ const ExampleApp = connect(
       </div>
     </div>
 )
+
+const onProfileEnter = (nextRouterState) => {
+  let addressId =  nextRouterState.params.id;
+  store.dispatch(retrieveUserAddress(addressId));
+  let userId = store.getState().auth.id;
+  store.dispatch(getUserOrders(userId));
+}
 
 const onOrdersEnter = () => {
   store.dispatch(getOrders())
@@ -76,7 +84,7 @@ render (
         <Route path="/products/:id" component={ProductContainer} onEnter={onProductEnter} />
         <Route path="/products/:id/review" component={UserReviewContainer} />
         <Route path="/orders" component={OrdersContainer} onEnter={onOrdersEnter} />
-        <Route path="/profile" component={UserContainer} />
+        <Route path="/profile/:id" component={UserContainer} onEnter={onProfileEnter} />
         <Route path="/cart"  component={CartContainer} />
       </Route>
     </Router>

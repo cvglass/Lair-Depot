@@ -62,8 +62,22 @@ ul {
 
 .categoryImage {
   max-width: 100%;
-  max-height: 215px;
+  max-height: 300px;
   border-radius: 20px;
+}
+
+.profileImage{
+  max-width: 100%;
+  max-height: 350px;
+}
+
+.profileCell{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .profileContainer {

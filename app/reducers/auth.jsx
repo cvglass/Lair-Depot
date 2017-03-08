@@ -1,4 +1,6 @@
 import axios from 'axios'
+import {UPDATE_USERINFO} from '../constants';
+import {retrieveUserAddress} from './address.jsx';
 import {getCart} from '../reducers/cart'
 
 const reducer = (state=null, action) => {
@@ -14,11 +16,18 @@ export const authenticated = user => ({
   type: AUTHENTICATED, user
 })
 
+export const updateUserInfo = (userInfo) => {
+  return {
+    type: UPDATE_USERINFO,
+    info: userInfo
+  }
+}
+
 export const login = (username, password) =>
   dispatch =>
     axios.post('/api/auth/login/local',
       {username, password})
-      .then(() => dispatch(whoami()))
+      .then(() => dispatch(whoami()) )
       .catch(() => dispatch(whoami()))
 
 export const logout = () =>

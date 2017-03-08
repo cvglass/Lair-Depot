@@ -4,6 +4,7 @@ export const ADD_REVIEW = 'ADD_REVIEW';
 export const GET_CATEGORIES = 'GET_CATEGORIES';
 
 export const GET_ORDERS = 'GET_ORDERS'
+export const GET_CURRENT_USER_ORDERS = 'GET_CURRENT_USER_ORDERS';
 
 export const GET_USERINFO = 'GET_USERINFO';
 export const UPDATE_USERINFO = 'UPDATE_USERINFO';
