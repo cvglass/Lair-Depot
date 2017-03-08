@@ -1,9 +1,14 @@
-import {ADD_TO_CART, REMOVE_FROM_CART, SUBMIT_CART, SET_CART, UPDATE_CART} from '../constants';
+import {ADD_TO_CART, REMOVE_FROM_CART, SUBMIT_CART, SET_CART, UPDATE_CART, SET_CART_DISPLAY} from '../constants';
 import axios from 'axios';
 
 export const setCart = (newCart ) =>({
   type: SET_CART,
   cart: newCart,
+})
+
+export const setDisplay = (products)=> ({
+  type: SET_CART_DISPLAY,
+  display: products
 })
 
 export const getCart = (userID) => {

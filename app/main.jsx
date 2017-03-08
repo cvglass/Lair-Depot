@@ -5,7 +5,7 @@ import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 
 import store from './store'
-
+import axios from 'axios'
 import Jokes from './components/Jokes'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
@@ -24,7 +24,7 @@ import { getOrders, getUserOrders } from './action-creators/orders'
 import { listProducts, getProductsByCategory } from './action-creators/products'
 import { listProduct } from './action-creators/product'
 import { pullReviews } from './action-creators/reviews'
-import {getCart} from './action-creators/cart'
+import {setDisplay} from './action-creators/cart'
 import { getCategories } from './action-creators/category'
 import { retrieveUserAddress } from './action-creators/address.jsx';
 
@@ -57,7 +57,6 @@ const onProductsEnter = (nextRouterState) => {
 
 const onProductEnter = (nextRouterState) => {
   let productId = nextRouterState.params.id;
-  console.log('productId', productId);
   store.dispatch(listProduct(productId));
   store.dispatch(pullReviews(productId));
 }
@@ -69,6 +68,27 @@ const onCategoriesEnter = (nextRouterState) => {
 const onCategoryEnter = (nextRouterState) => {
   let categoryId = nextRouterState.params.id;
   store.dispatch(getProductsByCategory(categoryId))
+}
+
+const onCartEnter = () => {
+  let cart = store.getState('cart')
+  let products = []
+  if (cart){
+    products = cart.carts.cart.products
+    const productArr = [];
+    products.forEach(product => {
+      productArr.push(axios.get(`/api/products/${product.product_id}`))
+    })
+    Promise.all(productArr)
+    .then(displayProducts => {
+      const prod = displayProducts.map((product, ind) => {
+        product.data.quantity = products[ind].quantity;
+      return product.data
+      })
+    store.dispatch(setDisplay(prod))
+
+    } )
+  }
 }
 
 render (
