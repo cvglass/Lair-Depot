@@ -32,25 +32,21 @@ const Reviews = ({product, user, reviews}) => {
 
   return (
     <div>
-      {
-        user &&
-        <div className="row">
-          <Link to={`/products/${product.id}/review`} >
-            <button>Write a review</button>
-          </Link>
-        </div>
-      }
       <div className="row">
-        <h4>Reviews ({numReviews})</h4>
+        <h4 className="reviewP">Reviews ({numReviews})</h4>
       </div>
       <div className="row">
         {reviews.map(review => {
           return (
             <div key={review.id}>
-              <ul className="review">{getStars(review)}</ul>
-              <span className="reviewTitle">{review.title}</span>
-              <span>By {review.user.name} on {review.created_at}</span>
-              <p>{review.description}</p>
+              <div className="panel panel-default">
+                <div className="panel-body">
+                {/*<span className="reviewTitle">{review.title}</span>*/}
+                  <ul className="review">{getStars(review)}</ul>
+                  <span>By <b>{review.user.name}</b> on {review.created_at}</span>
+                </div>
+              <p className="reviewP">{review.description}</p>
+              </div>
             </div>
           )
         })}
