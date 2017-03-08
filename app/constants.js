@@ -16,7 +16,7 @@ export const SET_PRODUCT = 'SET_PRODUCT';
 export const CHANGE_NAV_VIEW = 'CHANGE_NAV_VIEW';
 
 
-
+export const SET_CART_DISPLAY = 'SET_CART_DISPLAY';
 
 
 export const ADD_TO_CART = 'ADD_TO_CART';

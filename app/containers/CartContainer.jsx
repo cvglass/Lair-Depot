@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 import {addToCart} from '../action-creators/cart'
 const mapStateToProps = (state) =>{
   return {
-    mycart: state.carts.cart
+    mycart: state.carts.cart,
+    displayCart: state.carts.display
   }
 }
 
@@ -15,5 +16,6 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)

@@ -5,7 +5,7 @@ import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 
 import store from './store'
-
+import axios from 'axios'
 import Jokes from './components/Jokes'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
@@ -24,7 +24,7 @@ import { getOrders } from './action-creators/orders'
 import { listProducts, getProductsByCategory } from './action-creators/products'
 import { listProduct } from './action-creators/product'
 import { pullReviews } from './action-creators/reviews'
-import {getCart} from './action-creators/cart'
+import {setDisplay} from './action-creators/cart'
 import { getCategories } from './action-creators/category'
 
 const ExampleApp = connect(
@@ -63,6 +63,30 @@ const onCategoryEnter = (nextRouterState) => {
   store.dispatch(getProductsByCategory(categoryId))
 }
 
+const onCartEnter = () => {
+  let cart = store.getState('cart')
+  let products = []
+  if (cart){
+    products = cart.carts.cart.products
+    const productArr = [];
+    products.forEach(product => {
+      productArr.push(axios.get(`/api/products/${product.product_id}`))
+    })
+    Promise.all(productArr)
+    .then(displayProducts => {
+      //console.log(displayProducts)
+      const prod = displayProducts.map((product, ind) => {
+        product.data.quantity = products[ind].quantity;
+      return product.data
+      })
+      console.log(prod);
+    store.dispatch(setDisplay(prod))
+
+    } )
+  }
+    //dispatch(SET_DISPLAY_CART(products))
+}
+
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
@@ -77,7 +101,7 @@ render (
         <Route path="/products/:id/review" component={UserReviewContainer} />
         <Route path="/orders" component={OrdersContainer} onEnter={onOrdersEnter} />
         <Route path="/profile" component={UserContainer} />
-        <Route path="/cart"  component={CartContainer} />
+        <Route path="/cart"  onEnter={onCartEnter} component={CartContainer} />
       </Route>
     </Router>
   </Provider>,

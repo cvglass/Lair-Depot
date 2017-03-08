@@ -1,11 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router'
-const Cart = ({mycart, ToCart}) => {
+const Cart = ({mycart,displayCart}) => {
+  console.log(displayCart)
+  console.log(mycart)
   return (
   <div>
-    {mycart.products.length? (<div> 
-      {mycart.products.map((item)=> (
-        <ul key ={item.product_id} >item: {item.product_id}, quantity: {item.quantity}</ul>
+    {mycart.products.length && displayCart? (<div> 
+      {displayCart.map((item)=> (
+        <div key ={item.id}>
+          <ul  >item: {item.name} quantity: {item.quantity} price:{item.price*item.quantity}</ul>
+          <img className="product-thumbnail" src={item.imageUrl}/>
+        </div>
       ))}
       </div>) : null
     }
