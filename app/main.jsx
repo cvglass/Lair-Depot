@@ -55,10 +55,13 @@ const onProductsEnter = (nextRouterState) => {
   store.dispatch(listProducts())
 }
 
-const onProductEnter = (nextRouterState) => {
+const onProductEnter = (nextRouterState, _, callback) => {
   let productId = nextRouterState.params.id;
-  store.dispatch(listProduct(productId));
-  store.dispatch(pullReviews(productId));
+  store.dispatch(listProduct(productId))
+    .then(() => {
+      return store.dispatch(pullReviews(productId));
+    })
+    .then(()=> callback())
 }
 
 const onCategoriesEnter = (nextRouterState) => {

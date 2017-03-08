@@ -9,9 +9,10 @@ export const getReviews = (reviews) => {
 };
 
 export const pullReviews = (productId) => {
-  return (dispatch) =>
-    axios.get(`/api/products/${productId}/reviews`)
+  return (dispatch) => {
+    return axios.get(`/api/products/${productId}/reviews`)
       .then(res => res.data)
       .then(reviews => dispatch(getReviews(reviews)))
       .catch(err => console.log(err));
+  }
 };

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Navbar from '../components/Navbar';
 import {changeView} from '../action-creators/navbar';
 import {findProductBySearch} from '../action-creators/products'
+import {browserHistory} from 'react-router';
 
 class NavbarContainer extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class NavbarContainer extends React.Component {
     this.setState({
       inputValue: ''
     });
-    window.location.replace(`/api/products?name=${input}`);
+    browserHistory.push(`/api/products?name=${input}`);
   }
 
   render() {
