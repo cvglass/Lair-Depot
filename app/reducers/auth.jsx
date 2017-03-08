@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {UPDATE_USERINFO} from '../constants';
+import {retrieveUserAddress} from './address.jsx';
 
 const reducer = (state=null, action) => {
   switch(action.type) {
@@ -25,7 +26,7 @@ export const login = (username, password) =>
   dispatch =>
     axios.post('/api/auth/login/local',
       {username, password})
-      .then(() => dispatch(whoami()))
+      .then(() => dispatch(whoami()) )
       .catch(() => dispatch(whoami()))
 
 export const logout = () =>

@@ -5,7 +5,8 @@ import User from '../components/User';
 const mapStateToProps = (state) => {
   return {
     address: state.address.address,
-    auth: state.auth
+    auth: state.auth,
+    orders: state.orders.currUserList
   }
 }
 

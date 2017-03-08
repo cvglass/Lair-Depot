@@ -15,15 +15,11 @@ export const updateUserAddress = (addressInfo) => {
   }
 }
 
-export const retrieveUserAddress = (userID) => {
+export const retrieveUserAddress = (addressID) => {
   return (dispatch) => {
-    axios.get(`/api/users/${userID}`)
-    .then(info => {
-      let addressID = info.data.address_id;
       axios.get(`/api/addresses/${addressID}`)
-      .then(addressInfo => dispatch(getUserAddress(addressInfo.data.billingInfo)))
-    })
-    .catch(err => console.log(err));
+      .then(addressInfo => dispatch(getUserAddress(addressInfo.data)))
+      .catch(err => console.log(err));
   }
 }
 

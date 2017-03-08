@@ -14,7 +14,7 @@ module.exports = require('express').Router()
       console.log('here');
       res.status(201).json(address)})
     .catch(next))
-  .get('/:id', mustBeLoggedIn, (req, res, next) =>
+  .get('/:id', (req, res, next) =>
     Address.findById(req.params.id)
-    .then(address => res.json(address))
+    .then(address => res.json(address.billingInfo))
     .catch(next))

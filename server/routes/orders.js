@@ -1,5 +1,6 @@
 const db = require('APP/db');
 const Orders = db.model('orders');
+const Products = db.model('products');
 
 const {forbidden} = require('../auth.filters');
 
@@ -10,9 +11,14 @@ module.exports = require('express').Router()
     .then(allOrders => res.json(allOrders))
     .catch(next)
   })
-  .get('/:orderID', (req, res, next) => {
-    Orders.findOne({where: {id: req.params.orderID}})
-    .then(order => res.json(order))
+  .get('/:userID', (req, res, next) => {
+    let ordersObj = {};
+    Orders.findAll({
+        where: {
+          user_id: req.params.userID,
+        }
+    })
+    .then( orders => res.json(orders))
   })
   .post('/', (req, res, next) => {
     Orders.create(req.body)

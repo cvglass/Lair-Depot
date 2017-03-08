@@ -1,6 +1,6 @@
 import {GET_USER_ADDRESS, UPDATE_USER_ADDRESS} from '../constants';
 
-const initialState = { address: {}}
+const initialState = { address: ''};
 
 const address = (state = initialState, action) => {
 

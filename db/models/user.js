@@ -7,6 +7,7 @@ const db = require('APP/db')
 
 const User = db.define('users', {
   name: Sequelize.STRING,
+  imageUrl: Sequelize.STRING,
   email: {
     type: Sequelize.STRING,
     validate: {
@@ -24,6 +25,14 @@ const User = db.define('users', {
   hooks: {
     beforeCreate: setEmailAndPassword,
     beforeUpdate: setEmailAndPassword,
+    beforeValidate: function(user) {
+      //made assumption about file location, name, type
+      let fileName = user.name
+          .toLowerCase()
+          .split(' ')
+          .join('-');
+      user.imageUrl = `/img/${fileName}.jpg`;
+    }
   },
   instanceMethods: {
     // This method is a Promisified bcrypt.compare

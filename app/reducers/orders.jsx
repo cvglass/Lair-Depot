@@ -1,7 +1,8 @@
-import { GET_ORDERS } from '../constants';
+import { GET_ORDERS, GET_CURRENT_USER_ORDERS } from '../constants';
 
 const initialState = {
-  list: []
+  list: [],
+  currUserList: []
 }
 
 const reducer = (state=initialState, action) => {
@@ -10,6 +11,10 @@ const reducer = (state=initialState, action) => {
   switch (action.type){
     case GET_ORDERS:
     newState.list = action.list
+    break;
+
+    case GET_CURRENT_USER_ORDERS:
+    newState.currUserList = action.currUserList;
     break;
 
     default:
