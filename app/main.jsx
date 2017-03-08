@@ -49,7 +49,6 @@ const onProductsEnter = (nextRouterState) => {
 
 const onProductEnter = (nextRouterState) => {
   let productId = nextRouterState.params.id;
-  console.log('productId', productId);
   store.dispatch(listProduct(productId));
   store.dispatch(pullReviews(productId));
 }
@@ -74,17 +73,14 @@ const onCartEnter = () => {
     })
     Promise.all(productArr)
     .then(displayProducts => {
-      //console.log(displayProducts)
       const prod = displayProducts.map((product, ind) => {
         product.data.quantity = products[ind].quantity;
       return product.data
       })
-      console.log(prod);
     store.dispatch(setDisplay(prod))
 
     } )
   }
-    //dispatch(SET_DISPLAY_CART(products))
 }
 
 render (
