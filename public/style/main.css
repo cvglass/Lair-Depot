@@ -28,11 +28,15 @@
 /*products styles*/
 
 .product-thumbnail {
-  max-width: 150px;
+  /*max-width: 150px;*/
+  max-height: 150px;
+  padding: 5px;
 }
 
 .product-image {
   max-width: 400px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 /*review styles*/
@@ -42,12 +46,18 @@
   padding: 0;
 }
 
+.reviewP {
+  padding-left: 15px;
+}
+
 .fullStar, .emptyStar {
   color: #FFDF00;
 }
 
 ul {
   list-style: none;
+  padding-left:4px;
+  padding-top: 5px;
 }
 
 .allChildrenContainer {
@@ -131,4 +141,9 @@ ul {
 
 .magic-land {
   text-align: center;
+}
+
+.button-product {
+  padding-top: 2px;
+  padding-bottom: 2px;
 }

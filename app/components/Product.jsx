@@ -11,7 +11,6 @@ for (var i = 0; i < 100; i++){
 export const Product = ({change, handleClick, product, products, cartId, user, userId, inputValue, reviews}) => {
   return (
     <div className="productContainer">
-      <div className="row">
         <img className="col-md-4 product-image" src={product.imageUrl} />
         <div className="col-md-5">
           <h3>{product.name}</h3>
@@ -23,12 +22,19 @@ export const Product = ({change, handleClick, product, products, cartId, user, u
             })}
           </select>
         </div>
-        <div className="col-md-3">
+        <div className="col-md-5 button-product">
           <Link to={'/'}>
             <button onClick={(e) => handleClick(cartId, product.id, userId, inputValue, products )} type="button">Add to cart</button>
           </Link>
+            { user &&
+              <div className="button-product">
+                <Link to={`/products/${product.id}/review`} >
+                  <button>Write a review</button>
+                </Link>
+              </div>
+            }
         </div>
-      </div>
+        <div className="row" />
       <Reviews product={product} user={user} reviews={reviews} />
     </div>
   )
