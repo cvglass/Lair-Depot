@@ -1,19 +1,19 @@
-import {retrieveUserInfo} from '../action-creators/user';
+import {retrieveUserAddress} from '../action-creators/address';
 import {connect} from 'react-redux';
 import User from '../components/User';
 
 const mapStateToProps = (state) => {
   return {
-    info: state.user.info,
-    address: state.user.address,
-    auth: state.auth
+    address: state.address.address,
+    auth: state.auth,
+    orders: state.orders.currUserList
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     findUserInfo: function(userInfo) {
-      dispatch(retrieveUserInfo(userInfo))
+      dispatch(retrieveUserAddress(userInfo))
     }
   }
 }
