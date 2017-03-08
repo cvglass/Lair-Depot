@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {UPDATE_USERINFO} from '../constants';
 import {retrieveUserAddress} from './address.jsx';
+import {getCart} from '../reducers/cart'
 
 const reducer = (state=null, action) => {
   switch(action.type) {

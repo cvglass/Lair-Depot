@@ -34,14 +34,14 @@ const seedCartProd = () => db.Promise.map(data.cart_product, cartProduct => db.m
 
 db.didSync
   .then(() => db.sync({force: true}))
+  .then(seedProdCategories)
   .then(seedAddresses)
   .then(seedUsers)
-  .then(seedOrders)
-  .then(seedProdCategories)
   .then(seedProducts)
+  .then(seedOrders)
+  .then(seedOrderProduct)
   .then(seedProdCat)
   .then(seedReviews)
-  .then(seedOrderProduct)
   .then(seedCart)
   .then(seedCartProd)
   .then(() => console.log('done'))

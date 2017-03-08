@@ -9,10 +9,16 @@
       "address_id": "1"
     },{
       "name": "Dr. Evil",
-      "email": "drevile@example.com",
+      "email": "drevil@example.com",
       "password": "1234",
       "isAdmin": "false",
       "address_id": "2"
+    }, {
+      "name": "Darth Vader",
+      "email": "vader@example.com",
+      "password": "1234",
+      "isAdmin": "false",
+      "address_id": "3"
     }
   ],
   "orders":
@@ -63,6 +69,54 @@
       "name": "Fake Mustache",
       "description": "Quality horse-hair mustache that attaches via tape",
       "price": "20.11"
+    }, {
+      "name": "Light Sabre",
+      "description": "'You'll cut your eye out, kid.'",
+      "price": "99.99"
+    }, {
+      "name": "Throwing Stars",
+      "description": "Not to be confused with shooting stars",
+      "price": "2.49"
+    }, {
+      "name": "Sharks",
+      "description": "Tank size must be a minimum of 1000 gallons",
+      "price": "100"
+    }, {
+      "name": "Cockatoo",
+      "description": "Cocka-tubular",
+      "price": "25.68"
+    }, {
+      "name": "Hairless Cat (aka Sphynx)",
+      "description": "It's pretty terrifying to look at.",
+      "price": "88.88"
+    }, {
+      "name": "Electric Chair",
+      "description": "It's electric! Boogie, woogie, woogie!",
+      "price": "200.49"
+    }, {
+      "name": "Game of Thrones Chair",
+      "description": "For your inner fanboy.",
+      "price": "1500"
+    }, {
+      "name": "Flying Monkeys",
+      "description": "'Fly! Fly! Fly!'",
+      "price": "13.99"
+    }, {
+      "name": "Stormtroopers",
+      "description": "'Wonder what my face looks like.'",
+      "price": "500"
+    }, {
+      "name": "Dementors",
+      "description": "They're always fun to bring to a party.",
+      "price": "75.75"
+    }, {
+      "name": "HMO",
+      "description": "Better hope your doctor is in network.",
+      "price": "169.99"
+    }, {
+      "name": "PPO",
+      "description": "PPO plans allow you to visit whatever in-network physician or healthcare provider you wish without first requiring a referral from a primary care physician.",
+      "price": "269.99"
     }
   ],
   "category_product" :
@@ -70,13 +124,48 @@
     {
       "product_id": "1",
       "product_category_id": "1"
-    },
-    {
+    },{
       "product_id": "2",
       "product_category_id": "1"
     },{
       "product_id": "3",
       "product_category_id": "4"
+    }, {
+      "product_id": "4",
+      "product_category_id": "1"
+    },{
+      "product_id": "5",
+      "product_category_id": "1"
+    },{
+      "product_id": "6",
+      "product_category_id": "2"
+    },{
+      "product_id": "7",
+      "product_category_id": "2"
+    },{
+      "product_id": "8",
+      "product_category_id": "2"
+    }, {
+      "product_id": "9",
+      "product_category_id": "3"
+    }, {
+      "product_id": "10",
+      "product_category_id": "3"
+    }, {
+      "product_id": "11",
+      "product_category_id": "5"
+    }, {
+      "product_id": "12",
+      "product_category_id": "5"
+    }, {
+      "product_id": "13",
+      "product_category_id": "5"
+    }, {
+      "product_id": "14",
+      "product_category_id": "6"
+    }, {
+      "product_id": "15",
+      "product_category_id": "6"
     }
   ],
   "addresses":
@@ -93,6 +182,12 @@
       "state": "AL",
       "zip": "12345",
       "phone": "1234567890"
+    }, {
+      "street": "555 Death Star Ln",
+      "city": "Space",
+      "state": "IN",
+      "zip": "12345",
+      "phone": "1234567890"
     }
   ],
   "reviews":
@@ -102,12 +197,26 @@
       "description": "I used to spend thousands trying to scavenge forkyrptonite, now it is delivered right at my lair! Now only if I could finally kill Superman...",
       "user_id": "1",
       "product_id": "1"
-      },
-      {
+      },{
         "rating": "5",
         "description": " I LOVE LASERS",
         "user_id":"2",
         "product_id":"2"
+      }, {
+        "rating": "1",
+        "description": "Didn't do anything. Want to return.",
+        "user_id": "2",
+        "product_id": "7"
+      }, {
+        "rating": "5",
+        "description": "So much fun!",
+        "user_id": "3",
+        "product_id": "3"
+      }, {
+        "rating": "3",
+        "description": "Got the job done. Could use a cushion.",
+        "user_id": "1",
+        "product_id": "10"
       }
   ],
  "order_product":

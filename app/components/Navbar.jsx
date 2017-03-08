@@ -7,6 +7,12 @@ const Navbar = ({current, list, changeCurrent, user, adminList, handleChange, in
   return (
     <nav className="navbarContainer navbar navbar-default">
       <div className="container-fluid">
+        <div className="col-sm-1 col-md-1">
+          <a href="/">
+            <img className="logo" src="/img/logo.png" />
+          </a>
+        </div>
+
         <div className="col-sm-3 col-md-3">
           <form className="navbar-form" id="submitForm" role="search" onSubmit={handleSubmit}>
             <div className="input-group">
@@ -22,15 +28,13 @@ const Navbar = ({current, list, changeCurrent, user, adminList, handleChange, in
             </div>
           </form>
         </div>
-
-        <div className="col-sm-5 col-md-5" >
+        <div className="col-sm-4 col-md-4" >
         <Link to='/'><button className="btn btn-default">Home</button></Link>
-        {user ? <Link to={`/Profile/${user.address_id}`} ><button className="btn btn-default">Profile</button></Link>: null}
+        {user ? <Link to={`/profile/${user.address_id}`} ><button className="btn btn-default">Profile</button></Link>: null}
         {user ?(  user.isAdmin ? adminList.map((item)=> (
           <Link key ={item.id} to={item.name}>
               <button className="btn btn-default" onClick={() => changeCurrent(item)}> {item.name}</button>
-            </Link>
-        ))
+            </Link>))
         : null) : null }
         {
           list.map((item) => (

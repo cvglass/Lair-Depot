@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 /*not sure if this will work; need to test
 when more pieces are in place*/
@@ -25,20 +26,35 @@ const getStars = (review) => {
   return stars;
 }
 
-const Reviews = ({reviews}) => {
-  console.log('reviews', reviews)
+const Reviews = ({product, user, reviews}) => {
+
+  let numReviews = reviews.length;
+
   return (
-    <div className="row">
-      {reviews.map(review => {
-        return (
-          <div key={review.id}>
-            <ul className="review">{getStars(review)}</ul>
-            <span className="reviewTitle">{review.title}</span>
-            <span>By {review.user.name} on {review.created_at}</span>
-            <p>{review.description}</p>
-          </div>
-        )
-      })}
+    <div>
+      {
+        user &&
+        <div className="row">
+          <Link to={`/products/${product.id}/review`} >
+            <button>Write a review</button>
+          </Link>
+        </div>
+      }
+      <div className="row">
+        <h4>Reviews ({numReviews})</h4>
+      </div>
+      <div className="row">
+        {reviews.map(review => {
+          return (
+            <div key={review.id}>
+              <ul className="review">{getStars(review)}</ul>
+              <span className="reviewTitle">{review.title}</span>
+              <span>By {review.user.name} on {review.created_at}</span>
+              <p>{review.description}</p>
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }

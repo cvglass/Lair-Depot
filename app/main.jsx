@@ -17,11 +17,14 @@ import UserContainer from './containers/UserContainer'
 import NavBarContainer from './containers/NavbarContainer'
 import ProductsContainer from './containers/ProductsContainer'
 import ProductContainer from './containers/ProductContainer'
+import UserReviewContainer from './containers/UserReviewContainer'
+import CartContainer from './containers/CartContainer'
 
 import { getOrders, getUserOrders } from './action-creators/orders'
 import { listProducts, getProductsByCategory } from './action-creators/products'
 import { listProduct } from './action-creators/product'
 import { pullReviews } from './action-creators/reviews'
+import {getCart} from './action-creators/cart'
 import { getCategories } from './action-creators/category'
 import { retrieveUserAddress } from './action-creators/address.jsx';
 
@@ -75,12 +78,14 @@ render (
         <IndexRedirect to="/categories" />
         <Route path = "/reviews" component={Reviews} />
         <Route path="/jokes" component={Jokes} />
-        <Route path="/categories" component={CategoryContainer} onEnter={onCategoriesEnter}/>
+        <Route path="/categories" component={CategoryContainer} onEnter={onCategoriesEnter} />
         <Route path="/categories/:id" component={ProductsContainer} onEnter={onCategoryEnter} />
         <Route path="/products" component={ProductsContainer} onEnter={onProductsEnter} />
         <Route path="/products/:id" component={ProductContainer} onEnter={onProductEnter} />
+        <Route path="/products/:id/review" component={UserReviewContainer} />
         <Route path="/orders" component={OrdersContainer} onEnter={onOrdersEnter} />
         <Route path="/profile/:id" component={UserContainer} onEnter={onProfileEnter} />
+        <Route path="/cart"  component={CartContainer} />
       </Route>
     </Router>
   </Provider>,
