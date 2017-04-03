@@ -1,5 +1,5 @@
 # Lair Depot
-### A whimsical ecommerce site selling all your supervillian needs.  [Try it out.](https://lairdepot.herokuapp.com/)
+### A whimsical ecommerce site selling all your supervillian needs.  [Try it out](https://lairdepot.herokuapp.com/).
 # Table of Contents
 * [Overview](#overview)
 * [Front End](#front)
