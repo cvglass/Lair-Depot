@@ -1,105 +1,62 @@
-# Hi, I'm bones
+# Lair Depot
+### A whimsical ecommerce site selling all your supervillian needs.
+# Table of Contents
+* [Overview](#overview)
+* [Front End](#front)
+* [Back End](#back)
 
-I'm a happy little skeleton. You can clone me to use as a starter on your projects!
-I have React, Redux, Sequelize, and Express all just rattling around in here ready
-to go.
+# Team members
+  * **[Ray Coti](https://github.com/raycoti)**
+  * **[Christine Glass](https://github.com/cvglass)**
+  * **[Sara Trujillo](https://github.com/saralein)**
+  * **[Soren Yeadon](https://github.com/spyeadon)**
 
-## I need node >= 6.7.0
 
-If you don't have it, I'll complain and tell you how to install it.
 
-## 1. Make me into something!
+<a name = "front"/>
 
-We recommend that you **clone**, not fork, this repo – unless your intention is
-to develop Bones proper instead of using Bones as the starting point for your
-own application.
+# Front End
 
-Start by doing either of the following:
+# Product
 
-* Create a GitHub repo and clone it, or
-* `git init` in an empty directory on your machine.
+### Reducer
 
-After you have a repo on your machine:
+### Action Creators
 
-```sh
-git remote add bones https://github.com/FullstackAcademy/bones.git
-git fetch bones
-git merge bones/master
-```
+### Components
 
-And then you'll have me! If I change – which I probably will – you can get the most recent
-version by doing this again:
+### Containers
 
-```sh
-git fetch bones
-git merge bones/master
-```
+# Orders
 
-## 2. I need a name.
+### Reducer
 
-I don't have a name. I think I used to have one, but it turned to dust right along with my
-heart and liver and pituitary gland and all that stuff.
+### Action Creators
 
-Anyway, I'll need one. Give me a name in `package.json`.
+### Components
 
-## 3. Start my dusty heart
+### Containers
 
-Short and sweet:
+## Reviews
 
-```sh
-npm install
-npm run dev
-```
+### Reducer
 
-The `dev` script sets `NODE_ENV` to "development", runs the build script in watch mode, and
-starts the server with `nodemon`. Build vs server logs are separated by a prefix. If you prefer
-to run the server and build processes separately, you can instead do:
+### Action Creators
 
-```sh
-npm run start-dev
-```
+### Components
 
-```sh
-npm run build-dev
-```
+### Containers
 
-In two separate terminals. The vanilla `npm start` is for production — you won't use it in development!
+# Cart
 
-## My anatomy
+### Reducer
 
-`/app` has the React/Redux setup. `main.jsx` is the entry point.
+### Action Creators
 
-`/db` has the Sequelize models and database setup. It'll create the database for you if it doesn't exist,
-assuming you're using postgres.
+### Components
 
-`/server` has the Express server and routes. `start.js` is the entry point.
+### Containers
 
-`/bin` has scripts. (Right now it has *one* script that creates a useful symlink.)
+<a name = "front"/>
 
-## Conventions
-
-I use `require` and `module.exports` in `.js` files.
-
-I use `import` and `export` in `.jsx` files, unless `require` makes for cleaner code.
-
-I use two spaces, no semi-colons, and trailing commas where possible. I'll
-have a linter someday soon.
-
-## Quick Heroku deployment
-
-1. Set up the Heroku command line tools
-2. `heroku login`
-3. Add a git remote for heroku:
-  - **If you're creating a new app...**
-    1. `heroku create` or `heroku create your-app-name` if you have a name in mind.
-    2. `heroku addons:create heroku-postgresql:hobby-dev` to add postgres
-    3. `npm run deploy-heroku`. This will create a new branch and compile and commit your
-       frontend JS to it, then push that branch to Heroku.
-    4. `heroku run db/seed` to seed the database
-
-  - **If you already have a Heroku app...**
-    1.  `heroku git:remote your-app-name` You'll need to be a collaborator on the app.
-
-Afterwards,
-  - *To deploy:* `npm run deploy-heroku`
-  - *To re-seed:* `npm run db/seed`
+## Back End
