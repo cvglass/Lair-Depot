@@ -5,6 +5,9 @@
 * [Front End](#front)
 * [Back End](#back)
 
+## Installation
+npm install
+
 # Team members
   * **[Ray Coti](https://github.com/raycoti)**
   * **[Christine Glass](https://github.com/cvglass)**
